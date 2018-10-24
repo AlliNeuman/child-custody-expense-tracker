@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     # need something to order alphabetically
-    render json: @categories.as_json(:only => [:name])
+    render json: @categories.as_json(:only => [:id, :name])
   end
 
   def show
@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
       @category.save
       # need something here to order the categories alphabetically
       @categories = Category.all
-      render json: @categories.as_json(:only => [:name])
+      render json: @categories.as_json(:only => [:id, :name])
     else
       render json: { message: "Something went wrong in creating the new category. Please try submitting again."}
     end

@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
       @expense.save
       # need something here to order by date
       @expenses = Expense.all
-      render json: @expenses
+      render json: @expenses.as_json(:except => [:created_at, :updated_at])
     else
       render json: { message: "Something went wrong creating your new record. Please try again."}
     end
