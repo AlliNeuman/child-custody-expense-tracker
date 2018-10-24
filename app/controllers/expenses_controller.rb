@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:edit, :show, :update, :destroy]
+  before_action :set_expense, only: [:show, :update, :destroy]
 
   def index
     @expenses = Expense.all
@@ -10,13 +10,6 @@ class ExpensesController < ApplicationController
   def show
     # need render json stuff here
     render json: @expense
-  end
-
-  def new
-  end
-
-  def edit
-
   end
 
   def create
@@ -31,7 +24,12 @@ class ExpensesController < ApplicationController
   end
 
   def update
-
+    if @expense.valid?
+      @expense.update(expense_params)
+      render json: @expense
+    else
+      render json: { message: "The category could not be edited. Please try again."}
+    end
   end
 
   def destroy
