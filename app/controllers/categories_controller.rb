@@ -14,22 +14,20 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    if @category.valid?
-      @category.save
+    if @category.save
       # need something here to order the categories alphabetically
       @categories = Category.all
       render json: @categories.as_json(:only => [:id, :name]), status: 201
     else
-      render json: { message: "Something went wrong in creating the new category. Please try submitting again."}, status: 422
+      render_errors_in_json
     end
   end
 
   def update
-    if @category.valid?
       if @category.update(category_params)
         render json: @category, status: 200
       else
-        render json: { message: "The category could not be edited. Please try again."}, status: 404
+        render_errors_in_json
       end
     end
 
@@ -44,6 +42,14 @@ class CategoriesController < ApplicationController
       if !@category
         render json: { message: "Category not found"}, status: 404
       end
+    end
+
+    def render_errors_in_json
+      render json: {
+        errors: {
+          messages: @category.errors.messages
+        }
+      }, status: 422
     end
 
     def category_params
