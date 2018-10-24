@@ -9,7 +9,11 @@ class ExpensesController < ApplicationController
 
   def show
     # need render json stuff here
-    render json: @expense
+    if @expense
+      render json: @expense, status: 200
+    else
+      render json: { message: "Expense not found"}, status: 404
+    end 
   end
 
   def create

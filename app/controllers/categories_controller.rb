@@ -4,12 +4,16 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     # need something to order alphabetically
-    render json: @categories.as_json(:only => [:id, :name])
+    render json: @categories.as_json(:only => [:id, :name]), status: 200
   end
 
   def show
     # add something here to show all expenses for the particular category selected
-    render json: @category
+    if @category
+      render json: @category, status: 200
+    else
+      render json: { message: "Category not found"}, status: 404
+    end 
   end
 
   def create
@@ -18,9 +22,9 @@ class CategoriesController < ApplicationController
       @category.save
       # need something here to order the categories alphabetically
       @categories = Category.all
-      render json: @categories.as_json(:only => [:id, :name])
+      render json: @categories.as_json(:only => [:id, :name]), status: 201
     else
-      render json: { message: "Something went wrong in creating the new category. Please try submitting again."}
+      render json: { message: "Something went wrong in creating the new category. Please try submitting again."}, status: 422
     end
   end
 
