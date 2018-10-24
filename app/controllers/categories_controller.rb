@@ -9,11 +9,7 @@ class CategoriesController < ApplicationController
 
   def show
     # add something here to show all expenses for the particular category selected
-    if @category
-      render json: @category, status: 200
-    else
-      render json: { message: "Category not found"}, status: 404
-    end 
+    render json: @category, status: 200
   end
 
   def create
@@ -30,25 +26,28 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.valid?
-      @category.update(category_params)
-      render json: @category
-    else
-      render json: { message: "The category could not be edited. Please try again."}
+      if @category.update(category_params)
+        render json: @category, status: 200
+      else
+        render json: { message: "The category could not be edited. Please try again."}, status: 404
+      end
     end
+
+    def destroy
+      # don't really think they would ever delete a category
+    end
+
+    private
+
+    def set_category
+      @category = Category.find(params[:id])
+      if !@category
+        render json: { message: "Category not found"}, status: 404
+      end
+    end
+
+    def category_params
+      params.require(:category).permit(:name)
+    end
+
   end
-
-  def destroy
-    # don't really think they would ever delete a category
-  end
-
-  private
-
-  def set_category
-    @category = Category.find(params[:id])
-  end
-
-  def category_params
-    params.require(:category).permit(:name)
-  end
-
-end
