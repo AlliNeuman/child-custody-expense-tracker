@@ -1,6 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :create, :update, :destroy]
-  # before_action :set_category, only: [:create]
+  before_action :set_expense, only: [:show, :update, :destroy]
 
   def index
     @expenses = Expense.all
@@ -54,7 +53,7 @@ class ExpensesController < ApplicationController
   end
 
   def expense_params
-    params.require(:expense).permit(:date, :amount, :description, :reimburse_percent, :paid, :category_id, category_attributes: [:id, :name]
+    params.require(:expense).permit(:date, :amount, :description, :reimburse_percent, :paid, :category_ids => [], :category_attributes => [:name]
     )
   end
 
