@@ -23,16 +23,16 @@ class CategoriesController < ApplicationController
   end
 
   def update
-      if @category.update(category_params)
-        render json: @category, status: 200
-      else
-        render_errors_in_json
-      end
+      # if @category.update(category_params)
+      #   render json: @category, status: 200
+      # else
+      #   render_errors_in_json
+      # end
     end
 
     def destroy
-      @category.destroy
-      :no_content
+      # @category.destroy
+      # :no_content
     end
 
     private
