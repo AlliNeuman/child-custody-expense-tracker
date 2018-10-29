@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: [:show, :update, :destroy]
+  before_action :set_expense, only: [:show, :create, :update, :destroy]
+  # before_action :set_category, only: [:create]
 
   def index
     @expenses = Expense.all
@@ -8,11 +9,11 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    # need render json stuff here
     render json: @expense, status: 200
   end
 
   def create
+    # @expense = @category.expense.build(expense_params)
     @expense = Expense.new(expense_params)
     if @expense.save
       # need something here to order by date
@@ -56,5 +57,5 @@ class ExpensesController < ApplicationController
     params.require(:expense).permit(:date, :amount, :description, :reimburse_percent, :paid, :category_id, category_attributes: [:id, :name]
     )
   end
-  
+
 end
