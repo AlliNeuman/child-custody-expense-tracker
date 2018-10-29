@@ -16,8 +16,7 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
     if @category.save
       # need something here to order the categories alphabetically
-      @categories = Category.all
-      render json: @categories.as_json(:only => [:id, :name]), status: 201
+      render json: @category.as_json(:only => [:id, :name]), status: 201
     else
       render_errors_in_json
     end
@@ -32,7 +31,7 @@ class CategoriesController < ApplicationController
     end
 
     def destroy
-      # don't really think they would ever delete a category
+      
     end
 
     private
