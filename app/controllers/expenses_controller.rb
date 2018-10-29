@@ -9,42 +9,47 @@ class ExpensesController < ApplicationController
 
   def show
     # need render json stuff here
-    if @expense
-      render json: @expense, status: 200
-    else
-      render json: { message: "Expense not found"}, status: 404
-    end 
+    render json: @expense, status: 200
   end
 
   def create
     @expense = Expense.new(expense_params)
-    if @expense.valid?
-      @expense.save
+    if @expense.save
       # need something here to order by date
-      @expenses = Expense.all
-      render json: @expenses.as_json(:except => [:created_at, :updated_at])
+      render json: @expense.as_json(:except => [:created_at, :updated_at]), status: 201
     else
-      render json: { message: "Something went wrong creating your new record. Please try again."}
+      render_errors_in_json
     end
   end
 
   def update
-    if @expense.valid?
-      @expense.update(expense_params)
+    if @expense.update(expense_params)
       render json: @expense
     else
-      render json: { message: "The category could not be edited. Please try again."}
+      render_errors_in_json
     end
   end
 
   def destroy
-
+    @expense.destroy
+    :no_content
   end
 
   private
 
   def set_expense
     @expense = Expense.find(params[:id])
+    if !@expense
+      render json: { message: "Expense not found"}, status: 404
+    end
+  end
+
+  def render_errors_in_json
+    render json: {
+      errors: {
+        messages: @expense.errors.messages
+      }
+    }, status: 422
   end
 
   def expense_params
