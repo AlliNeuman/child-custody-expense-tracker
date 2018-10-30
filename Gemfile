@@ -13,6 +13,8 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+# Active Model serializer
+gem 'active_model_serializers'
 
 
 # Reduces boot times through caching; required in config/boot.rb
