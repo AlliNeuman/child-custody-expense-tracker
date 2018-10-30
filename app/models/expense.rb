@@ -14,9 +14,9 @@ class Expense < ApplicationRecord
       end
     end
     if category_attributes['name'] != ""
-      category = Category.find_or_create_by(name: category_attributes['name'])
+      category = Category.find_or_create_by(name: category_attributes['name'].downcase)
       self.categories << category
     end
   end
-  
+
 end
