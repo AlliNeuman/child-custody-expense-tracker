@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import NavBar from './components/NavBar';
+import ExpensesPage from './containers/ExpensesPage';
+import { Footer } from './components/Footer';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <div className="container">
+            <Route exact path="/" component={Welcome} />
+            <Route exact path="/expenses" component={ExpensesPage} />
+            <Route exact path="/expenses/:id" component={ExpensePage} />
+            </div>
+          <Footer />
+        </div>
+      </Router>
     );
   }
 }
