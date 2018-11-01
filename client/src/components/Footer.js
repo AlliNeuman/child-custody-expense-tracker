@@ -3,5 +3,7 @@ import '../App.css';
 
 export const Footer = () =>
   <div className="container">
-    <p>Made with &hearts; by TheNeuMama
+    <footer>
+      <p>Made with &hearts; by TheNeuMama</p>
+    </footer>
     </div>

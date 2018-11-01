@@ -3,8 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ExpensesPage from './containers/ExpensesPage';
+import ExpensePage from './containers/ExpensePage';
+import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
-import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
