@@ -5,11 +5,11 @@ import SearchBar from '../components/SearchBar';
 class ExpensesPage extends Component {
 
   render() {
-    return (
+    return 
       // <div className="SearchBar">
       //   <SearchBar />
       // </div>
-    )
+
   }
 }
 
