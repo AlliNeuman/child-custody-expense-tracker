@@ -15,10 +15,31 @@ class ExpenseForm extends Component {
     }
   }
 
+  onChange = event => {
+    this.setState({
+      value: event.target.value
+    });
+  }
+
+  onSubmit = event => {
+    event.preventDefault();
+
+  }
+
   render() {
     return (
-
-    )
+      <div className="container">
+        <form id="expense-form" onSubmit={this.onSubmit.bind(this)}>
+          <input>
+          <input>
+          <input>
+          <input>
+          <input>
+          <input>
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+    );
   }
 
 }
