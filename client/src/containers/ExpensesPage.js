@@ -6,9 +6,9 @@ class ExpensesPage extends Component {
 
   render() {
     return (
-      <div className="SearchBar">
-        <SearchBar />
-      </div>
+      // <div className="SearchBar">
+      //   <SearchBar />
+      // </div>
     )
   }
 }
