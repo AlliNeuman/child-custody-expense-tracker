@@ -15,5 +15,13 @@ footer {
 }
 
 .SearchBar {
-  
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+
+.SearchBar > input {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }

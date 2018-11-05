@@ -6,7 +6,7 @@ class ExpensesPage extends Component {
 
   render() {
     return (
-      <div className="center-block">
+      <div className="SearchBar">
         <SearchBar />
       </div>
     )
