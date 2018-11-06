@@ -30,12 +30,12 @@ class ExpenseForm extends Component {
     return (
       <div className="container">
         <form id="expense-form" onSubmit={this.onSubmit.bind(this)}>
-          <input>
-          <input>
-          <input>
-          <input>
-          <input>
-          <input>
+          <input />
+          <input />
+          <input />
+          <input />
+          <input />
+          <input />
           <input type="submit" value="Submit" />
         </form>
       </div>

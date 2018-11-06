@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchExpenses } from '../actions/expenseActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import ExpenseForm from './ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
 import '../App.css';
 // import SearchBar from '../components/SearchBar';
