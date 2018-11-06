@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
+import { fetchExpenses } from '../actions/expenseActions';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import ExpenseList from '../components/ExpenseList';
 import '../App.css';
 // import SearchBar from '../components/SearchBar';
-import ExpenseList from '../components/ExpenseList';
+
 
 //should have import for parent obligation calculation
 // should have import for expense paid button
 
 class ExpensesPage extends Component {
 
+  componentDidMount() {
+    this.props.fetchExpenses();
+  }
+
   render() {
     return (
-      <div>
-      <ExpenseList expenses={this.state.expenses} />
+      <div className="ExpensesPage">
+        <React.Fragment>
+          <ExpenseForm />
+          <ExpenseList expenses={this.state.expenses} />
+        </React.Fragment>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-
+const mapStateToProps = (state) => {
+  return {
+    expenses: state.expenses
+  }
 }
 
-export default ExpensesPage;
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchExpenses: fetchExpenses
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesPage);
