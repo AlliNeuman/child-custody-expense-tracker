@@ -1,18 +1,13 @@
 import fetch from 'cross-fetch';
 
-export function fetchCategories() {
-  return (dispatch) => {
-    dispatch({ type: 'LOADING_CATEGORIES'});
-    return fetch('http://localhost:3000/categories')
-      .then(response => response.json())
-      .then(categories => {dispatch({ type: 'FETCH_CATEGORIES', categories: categories })});
-  }
-}
+const API_URL = "http://localhost:3000"
 
-export function fetchCategory(category) {
+export function fetchCategories(){
   return (dispatch) => {
-    return fetch(`http://localhost:3000/expenses/${expense.expenseId}`)
+    dispatch({type: 'FETCH_CATEGORIES'})
+    return fetch(`${API_URL}/categories`)
       .then(response => response.json())
-      .then(post => {dispatch({ type: 'FETCH_CATEGORY', category: category })});
+      .then(categories => dispatch({type: "FETCH_CATEGORIES", payload: categories}))
+      .catch(error => console.log(error))
   }
 }

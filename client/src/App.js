@@ -8,6 +8,8 @@ import { Welcome } from './components/Welcome';
 import { Footer } from './components/Footer';
 
 class App extends Component {
+
+
   render() {
     return (
       <Router>
@@ -16,7 +18,6 @@ class App extends Component {
           <div className="container">
             <Route exact path="/" component={Welcome} />
             <Route exact path="/expenses" component={ExpensesPage} />
-            <Route exact path="/expenses/:id" component={ExpensePage} />
             </div>
           <Footer />
         </div>
