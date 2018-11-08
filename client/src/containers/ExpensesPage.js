@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ExpenseList from '../components/ExpenseList';
+import SearchBar from '../components/SearchBar';
 
-const ExpensesPage = () => {
+class ExpensesPage extends Component {
+  render() {
+    return (
+      <SearchBar />
+    )
+  }
 
 
 }
