@@ -45,3 +45,6 @@ array_of_stuffs.forEach(item => {
 
 console.log('total before toFixed()', total);
 console.log('total after toFixed()', total.toFixed(2));
+
+USE LODASH FOR EASY FILTERING:
+_.filter(expense: {'paid': false});
