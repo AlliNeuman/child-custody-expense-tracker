@@ -11,11 +11,10 @@ export function fetchExpenses() {
       .then(response => response.json())
       .then(expenses => dispatch({
         type: 'FETCH_EXPENSES',
-        payload: expenses
-      }));
+        payload: expenses}))
+      .catch(error => console.error(error))
   };
 }
-
 
 export function fetchExpense(expense){
   return (dispatch) => {
@@ -25,9 +24,9 @@ export function fetchExpense(expense){
 
     return fetch(expenseUrl, {method: 'get'})
       .then(response => response.json())
-      .then(expense => {dispatch({
+      .then(expense => dispatch({
         type: 'LOADING_EXPENSE',
-        payload: expense
-      })});
+        payload: expense}))
+      .catch(error => console.error(error))
   };
 }
