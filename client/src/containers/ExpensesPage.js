@@ -16,6 +16,7 @@ class ExpensesPage extends Component {
   render() {
     return (
       <SearchBar />
+      <ExpenseList expenses={this.state.expenses} />
     )
   }
 }

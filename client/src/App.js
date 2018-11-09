@@ -18,6 +18,9 @@ class App extends Component {
           <div className="container">
             <Route exact path="/" component={Welcome} />
             <Route exact path="/expenses" component={ExpensesPage} />
+            <Switch>
+              <Route path={'/expenses/:expenseId'} component={ExpensePage} />
+            </Switch>
             </div>
           <Footer />
         </div>
