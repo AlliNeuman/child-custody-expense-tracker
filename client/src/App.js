@@ -1,11 +1,19 @@
+//React imports
 import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+//Component Imports
+import {NavBar} from './components/NavBar';
+import {Footer} from './components/Footer';
+import {Home} from './components/Home';
+
+// container imports
 import ExpensesPage from './containers/ExpensesPage';
 import ExpensePage from './containers/ExpensePage';
-import { Welcome } from './components/Welcome';
-import { Footer } from './components/Footer';
+import ExpenseForm from './containers/ExpenseForm';
+
+// CSS imports
+import './App.css';
 
 class App extends Component {
 
@@ -16,9 +24,10 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <div className="container">
-            <Route exact path="/" component={Welcome} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/new" component={ExpenseForm} />
             <Route exact path="/expenses" component={ExpensesPage} />
-            <Switch>
               <Route path={'/expenses/:expenseId'} component={ExpensePage} />
             </Switch>
             </div>
