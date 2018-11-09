@@ -46,7 +46,8 @@ export const fetchExpenses = () => {
   }
 }
 
-export const fetchExpense = () => {
+export const fetchExpense = (expense) => {
+  const expenseId = expense.id
   return dispatch => {
     return fetch(`${API_URL}/expenses/${expenseId}`)
     .then(response => response.json())
@@ -76,7 +77,8 @@ export const createExpense = (expense) => {
   }
 }
 
-export const deleteExpense = (expenseId, routerHistory) => {
+export const deleteExpense = (expense, routerHistory) => {
+  const expenseId = expense.id
   return dispatch => {
     return fetch(`${API_URL}/expenses/${expenseId}`, {
       method: "DELETE",

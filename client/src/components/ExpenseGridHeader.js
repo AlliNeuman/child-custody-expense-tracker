@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ExpenseGridHeader = () => {
+const ExpenseGridHeader = () => {
 
   const expenseHeaderNames = ["Date", "Category", "Description", "Amount", "Reimbursement Percent", "Parent Obligation", "Expense Paid"]
 
@@ -8,10 +8,12 @@ export const ExpenseGridHeader = () => {
     <div className="row">
       expenseHeaderNames.map(name => {
         <div className="col">
-          <strong>{name}</strong>
+          <strong>name</strong>
           </div>
         }
       )
       </div>
     )
 }
+
+export default ExpenseGridHeader;
