@@ -18,6 +18,7 @@ class ExpensesPage extends Component {
     return (
       <React.Fragment>
       <SearchBar />
+      <ExpenseGridHeader />
       <ExpenseList expenses={this.state.expenses} />
       </React.Fragment>
     )
