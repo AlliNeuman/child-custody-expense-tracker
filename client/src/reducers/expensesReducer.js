@@ -12,7 +12,7 @@ export default (state=[], action) => {
     case 'ADD_EXPENSE':
       return state.concat(action.expense);
 
-    case 'REMOVE_EXPENSE':
+    case 'DELETE_EXPENSE':
       return state.filter(expense => expense.id !== action.id)
 
     case 'UPDATE_EXPENSE':

@@ -7,6 +7,7 @@ import 'react-day-picker/lib/style.css';
 class ExpenseForm extends Component {
   constructor(props){
     super(props);
+
     this.handleDayChange = this.handleDayChange.bind(this);
 
     this.state = {
@@ -26,14 +27,15 @@ class ExpenseForm extends Component {
   }
 
   handleOnChange = event => {
+    const { value, name } = event.target
     this.setState({
-      [event.target.name]: event.target.value
+      [name]: value
     });
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
-    this.props.createExpense(this.state)
+    this.props.createExpense(this.state);
     this.props.history.push('/expenses')
   }
 
@@ -41,27 +43,63 @@ class ExpenseForm extends Component {
     const { selectedDay } = this.state;
 
     return (
-      <div className="expense-form">
+      <div className="container">
       <h4>Add an Expense</h4>
-      <form onSubmit={this.handleOnSubmit}>
-        <FormGroup className="row">
 
-        <div>
-          {selectedDay}
-          <DayPickerInput onDayChange={this.handleDayChange} />
+      <form id="expense-form" onSubmit={this.handleOnSubmit.bind(this)}>
+
+        <div className="row">
+//Date => Date picker pop out
+          <div>
+            {selectedDay}
+            <DayPickerInput
+            ref="dateInput"
+            name="date"
+            placeholder="select day"
+            onDayChange={this.handleDayChange} />
+          </div>
+//Category => need to have a fetch req
+          <input
+            ref="categoryInput"
+            type="text"
+            name="category"
+            placeholder="Category"
+            value={this.state.category}
+            onChange={this.handleOnChange}
+            />
+//Description
+          <input
+            ref="descriptionInput"
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={this.state.description}
+            onChange={this.handleOnChange}
+            />
+//Amount => float
+          <input
+            ref="amountInput"
+            type="text"
+            name="amount"
+            placeholder="Amount"
+            value={this.state.amount}
+            onChange={this.handleOnChange}
+            />
+
+//Reimburse => float #
+          <input
+            ref="reimburseInput"
+            type="text"
+            name="description"
+            placeholder="Description"
+            value={this.state.description}
+            onChange={this.handleOnChange}
+            />
+
+//Paid => boolean => should I render button?
         </div>
-
-        <FormControl
-          type=""
-          name="category"
-          value={this.state.date}
-          onChange={this.handleOnChange}
-        />
-        
-
-
-
-
+      </form>
+  </div>
     )
   }
 }

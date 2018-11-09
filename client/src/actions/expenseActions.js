@@ -29,7 +29,7 @@ const updateExpense = expense => {
   }
 }
 
-const deleteExpense = expense => {
+const removeExpense = expense => {
   return {
     type: 'DELETE_EXPENSE',
     expense
@@ -84,7 +84,7 @@ export const deleteExpense = (expense, routerHistory) => {
       method: "DELETE",
     })
     .then(response => {
-      dispatch(deleteExpense(expenseId));
+      dispatch(removeExpense(expenseId));
       routerHistory.replace('/expenses')
     })
     .catch(error => console.error(error))
