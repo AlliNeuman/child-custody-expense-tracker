@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { createExpense } from '../actions/expenseActions';
-import { FormControl, FormGroup } from 'react-bootstrap';
 
 class ExpenseForm extends Component {
   constructor(){
@@ -34,6 +33,25 @@ class ExpenseForm extends Component {
       <div className="expense-form">
       <h4>Add an Expense</h4>
       <form onSubmit={this.handleOnSubmit}>
+        <FormGroup className="row">
+
+        <FormControl
+          type="text"
+          name="date"
+          placeholder="Enter Date"
+          value={this.state.date}
+          onChange={this.handleOnChange}
+        />
+
+        <FormControl
+          type=""
+          name="category"
+          value={this.state.date}
+          onChange={this.handleOnChange}
+        />
+
+
+
 
     )
   }
