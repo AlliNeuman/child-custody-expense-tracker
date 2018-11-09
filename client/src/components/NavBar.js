@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
 
-const NavBar = () => {
+export const NavBar = () => {
     return (
       <div className="NavBar">
         <NavLink className="NavLink px-2 ml-2" to="/">
@@ -16,5 +16,3 @@ const NavBar = () => {
       </div>
     );
 }
-
-export default NavBar;
