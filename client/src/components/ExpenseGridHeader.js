@@ -1,15 +1,16 @@
 import React from 'react';
 
 const ExpenseGridHeader = ({expenseHeaderNames}) => (
-  <thead>
+<thead>
     <tr>
   {expenseHeaderNames.map(expenseHeaderName => (
-    <th scope="row" className="mx-1 px-3">
+    <th className="mx-1 px-3">
     {expenseHeaderName.th}
     </th>
   ))}
     </tr>
-  </thead>
+</thead>
+
 )
 
 
