@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { createExpense } from '../actions/expenseActions';
 
 class ExpenseForm extends Component {
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
 
 
 
@@ -37,15 +37,15 @@ class ExpenseForm extends Component {
     return (
       <div className="expenseForm">
 
-      <form id="expense-form" onSubmit={this.handleOnSubmit.bind(this)}>
-              <td style={{width: 69}}>
-                {selectedDay}
-                <DayPickerInput
+      <form id="expense-form" onSubmit={this.handleOnSubmit}>
+              <td>
+              <input
                 ref="dateInput"
-                id="dateInput"
+                type="text"
                 name="date"
-                placeholder="select day"
-                onDayChange={this.handleDayChange} />
+                placeholder="Enter Date: YYYMMDD"
+                value={this.state.date}
+                onChange={this.handleOnChange} />
               </td>
 
               <td>
@@ -53,7 +53,6 @@ class ExpenseForm extends Component {
                 ref="categoryInput"
                 type="text"
                 name="category"
-                width="103"
                 placeholder="Category"
                 value={this.state.category}
                 onChange={this.handleOnChange}
