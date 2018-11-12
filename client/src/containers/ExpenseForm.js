@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { createExpense } from '../actions/expenseActions';
+import { FormControl } from 'react-bootstrap';
 
 class ExpenseForm extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
 
 
@@ -16,8 +17,11 @@ class ExpenseForm extends Component {
       reimburse: '',
       paid: ''
     };
-
   }
+
+  // componentDidMount(){
+  //   this.props.fetchCategories()
+  // }
 
   handleOnChange = event => {
     const { value, name } = event.target
@@ -39,17 +43,19 @@ class ExpenseForm extends Component {
 
       <form id="expense-form" onSubmit={this.handleOnSubmit}>
               <td>
-              <input
+              <FormControl
+                label="Date"
                 ref="dateInput"
                 type="text"
                 name="date"
-                placeholder="Enter Date: YYYMMDD"
+                placeholder="YYYY-MM-DD"
                 value={this.state.date}
-                onChange={this.handleOnChange} />
+                onChange={this.handleOnChange}
+                />
               </td>
 
               <td>
-                <input
+                <FormControl
                 ref="categoryInput"
                 type="text"
                 name="category"
@@ -60,9 +66,8 @@ class ExpenseForm extends Component {
               </td>
 
               <td>
-                <input
+                <FormControl
                 ref="descriptionInput"
-                id="descriptionInput"
                 type="text"
                 name="description"
                 placeholder="Description"
@@ -72,9 +77,8 @@ class ExpenseForm extends Component {
               </td>
 
               <td>
-                <input
+                <FormControl
                 ref="amountInput"
-                id="amountInput"
                 type="text"
                 name="amount"
                 placeholder="Amount"
@@ -84,20 +88,35 @@ class ExpenseForm extends Component {
               </td>
 
               <td>
-                <input
+                <FormControl
                 ref="reimburseInput"
-                id="reimburseInput"
                 type="text"
                 name="reimbursement"
-                placeholder="Reimbursement Percent"
-                value={this.state.description}
+                placeholder="Reimburse Factor"
+                value={this.state.reimburse}
                 onChange={this.handleOnChange}
                 />
               </td>
+
+              <td>
+                <FormControl
+                componentClass="select"
+                ref="paidInput"
+                name="paid"
+                placeholder="Paid?"
+                value={this.state.paid}
+                onChange={this.handleOnChange}
+                >
+                <option value="true">Paid</option>
+                <option value="false">Not Paid</option>
+                </FormControl>
+              </td>
+
+              <button className="btn btn-sm" type="submit">Submit Expense</button>
       </form>
     </div>
     )
   }
 }
 
-export default ExpenseForm;
+export default connect(null, {createExpense})(ExpenseForm);

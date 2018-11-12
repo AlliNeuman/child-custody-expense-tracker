@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormControl } from 'react-bootstrap';
 
 class SearchBar extends Component {
   constructor(props){
@@ -7,13 +8,15 @@ class SearchBar extends Component {
     this.state = { term: ''};
   }
 
+
   render() {
     return (
       <div className="my-2 py-2">
-        <input
+        <FormControl
           placeholder="Search by Category"
           value={this.state.term}
-          onChange={this.onInputChange} />
+          onChange={this.onInputChange}
+          />
       </div>
     );
   }

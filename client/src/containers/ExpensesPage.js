@@ -30,9 +30,12 @@ class ExpensesPage extends Component {
 
       <React.Fragment>
       <h1>Expenses</h1>
+      <h3>Add an Expense</h3>
+      <ExpenseForm />
+
       <SearchBar />
       <ExpenseGridHeader expenseHeaderNames={expenseHeaderNames}/>
-      <ExpenseForm />
+
       <ExpenseList expenses={this.state.expenses} />
 
       </React.Fragment>
