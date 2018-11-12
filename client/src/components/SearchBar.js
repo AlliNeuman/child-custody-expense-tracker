@@ -9,8 +9,9 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div>
+      <div className="my-2 py-2">
         <input
+          placeholder="Search by Category"
           value={this.state.term}
           onChange={this.onInputChange} />
       </div>

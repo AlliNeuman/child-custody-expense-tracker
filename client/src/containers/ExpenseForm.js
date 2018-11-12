@@ -43,61 +43,69 @@ class ExpenseForm extends Component {
     const { selectedDay } = this.state;
 
     return (
-      <div className="container">
-      <h4>Add an Expense</h4>
+      <div className="expenseForm">
 
       <form id="expense-form" onSubmit={this.handleOnSubmit.bind(this)}>
 
-        <div className="row">
-//Date => Date picker pop out
-          <div>
+        <tr>
+          <td>
             {selectedDay}
             <DayPickerInput
             ref="dateInput"
+            id="dateInput"
             name="date"
             placeholder="select day"
             onDayChange={this.handleDayChange} />
-          </div>
-//Category => need to have a fetch req
+          </td>
+
+          <td>
           <input
             ref="categoryInput"
             type="text"
             name="category"
+            width="103"
             placeholder="Category"
             value={this.state.category}
             onChange={this.handleOnChange}
             />
-//Description
+            </td>
+
+            <td>
           <input
             ref="descriptionInput"
+            id="descriptionInput"
             type="text"
             name="description"
             placeholder="Description"
             value={this.state.description}
             onChange={this.handleOnChange}
             />
-//Amount => float
+            </td>
+
+            <td>
           <input
             ref="amountInput"
-            type="text"
+            id="amountInput"
+            type="number"
             name="amount"
             placeholder="Amount"
             value={this.state.amount}
             onChange={this.handleOnChange}
             />
+            </td>
 
-//Reimburse => float #
+            <td>
           <input
             ref="reimburseInput"
-            type="text"
-            name="description"
-            placeholder="Description"
+            id="reimburseInput"
+            type="number"
+            name="reimbursement"
+            placeholder="Reimbursement Percent"
             value={this.state.description}
             onChange={this.handleOnChange}
             />
-
-//Paid => boolean => should I render button?
-        </div>
+            </td>
+            </tr>
       </form>
   </div>
     )

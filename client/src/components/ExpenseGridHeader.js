@@ -1,13 +1,15 @@
 import React from 'react';
 
 const ExpenseGridHeader = ({expenseHeaderNames}) => (
-  <div className="row">
+  <thead>
+    <tr>
   {expenseHeaderNames.map(expenseHeaderName => (
-    <div className="col">
-    <strong>{expenseHeaderName.th}</strong>
-    </div>
+    <th scope="row" className="mx-1 px-3">
+    {expenseHeaderName.th}
+    </th>
   ))}
-  </div>
+    </tr>
+  </thead>
 )
 
 

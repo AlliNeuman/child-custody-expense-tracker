@@ -27,12 +27,22 @@ class ExpensesPage extends Component {
       ];
 
     return (
+      <div className="container">
       <React.Fragment>
       <h1>Expenses</h1>
+
       <SearchBar />
+      <table>
+      <tr>
       <ExpenseGridHeader expenseHeaderNames={expenseHeaderNames}/>
+      </tr>
+      <tr>
+      <ExpenseForm />
+      </tr>
       <ExpenseList expenses={this.state.expenses} />
+      </table>
       </React.Fragment>
+      </div>
     )
   }
 }
