@@ -1,19 +1,14 @@
 import React from 'react';
 
-const ExpenseGridHeader = () => {
+const ExpenseGridHeader = ({expenseHeaderNames}) => (
+  <div className="row">
+  {expenseHeaderNames.map(expenseHeaderName => (
+    <div className="col">
+    <strong>{expenseHeaderName.th}</strong>
+    </div>
+  ))}
+  </div>
+)
 
-  const expenseHeaderNames = ["Date", "Category", "Description", "Amount", "Reimbursement Percent", "Parent Obligation", "Expense Paid"]
-
-  return (
-    <div className="row">
-      expenseHeaderNames.map(name => {
-        <div className="col">
-          <strong>name</strong>
-          </div>
-        }
-      )
-      </div>
-    )
-}
 
 export default ExpenseGridHeader;
