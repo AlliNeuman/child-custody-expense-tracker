@@ -8,7 +8,6 @@ class SearchBar extends Component {
     this.state = { term: ''};
   }
 
-
   render() {
     return (
       <div className="my-2 py-2">
