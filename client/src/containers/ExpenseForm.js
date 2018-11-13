@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { createExpense } from '../actions/expenseActions';
-import { FormControl } from 'react-bootstrap';
+import { Form, Button, FormControl } from 'react-bootstrap';
 
 class ExpenseForm extends Component {
   constructor(props){
@@ -41,8 +41,8 @@ class ExpenseForm extends Component {
     return (
       <div className="expenseForm">
 
-      <form id="expense-form" onSubmit={this.handleOnSubmit}>
-              <td>
+      <Form id="expense-form" onSubmit={this.handleOnSubmit}>
+
               <FormControl
                 label="Date"
                 ref="dateInput"
@@ -52,9 +52,7 @@ class ExpenseForm extends Component {
                 value={this.state.date}
                 onChange={this.handleOnChange}
                 />
-              </td>
 
-              <td>
                 <FormControl
                 ref="categoryInput"
                 type="text"
@@ -63,9 +61,7 @@ class ExpenseForm extends Component {
                 value={this.state.category}
                 onChange={this.handleOnChange}
                 />
-              </td>
 
-              <td>
                 <FormControl
                 ref="descriptionInput"
                 type="text"
@@ -74,9 +70,7 @@ class ExpenseForm extends Component {
                 value={this.state.description}
                 onChange={this.handleOnChange}
                 />
-              </td>
 
-              <td>
                 <FormControl
                 ref="amountInput"
                 type="text"
@@ -85,9 +79,7 @@ class ExpenseForm extends Component {
                 value={this.state.amount}
                 onChange={this.handleOnChange}
                 />
-              </td>
 
-              <td>
                 <FormControl
                 ref="reimburseInput"
                 type="text"
@@ -96,9 +88,7 @@ class ExpenseForm extends Component {
                 value={this.state.reimburse}
                 onChange={this.handleOnChange}
                 />
-              </td>
 
-              <td>
                 <FormControl
                 componentClass="select"
                 ref="paidInput"
@@ -110,13 +100,12 @@ class ExpenseForm extends Component {
                 <option value="true">Paid</option>
                 <option value="false">Not Paid</option>
                 </FormControl>
-              </td>
 
               <button className="btn btn-sm" type="submit">Submit Expense</button>
-      </form>
+      </Form>
     </div>
     )
   }
 }
 
-export default connect(null, {createExpense})(ExpenseForm);
+export default connect()(ExpenseForm);
