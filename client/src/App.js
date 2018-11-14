@@ -10,7 +10,7 @@ import {Home} from './components/Home';
 // container imports
 import ExpensesPage from './containers/ExpensesPage';
 import ExpensePage from './containers/ExpensePage';
-import ExpenseForm from './containers/ExpenseForm';
+import ExpenseNew from './containers/ExpenseNew';
 
 // CSS imports
 import './App.css';
@@ -26,7 +26,7 @@ class App extends Component {
           <div className="container">
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/new" component={ExpenseForm} />
+            <Route exact path="/new" component={ExpenseNew} />
             <Route exact path="/expenses" component={ExpensesPage} />
               <Route path={'/expenses/:expenseId'} component={ExpensePage} />
             </Switch>

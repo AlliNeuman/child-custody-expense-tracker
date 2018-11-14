@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { fetchExpenses } from '../actions/expenseActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ExpenseForm from './ExpenseForm';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
 import SearchBar from '../components/SearchBar';
@@ -31,7 +29,6 @@ class ExpensesPage extends Component {
       <React.Fragment>
       <h1>Expenses</h1>
       <h3>Add an Expense</h3>
-      <ExpenseForm />
 
       <SearchBar />
       <ExpenseGridHeader expenseHeaderNames={expenseHeaderNames}/>
@@ -44,16 +41,4 @@ class ExpensesPage extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    expenses: state.expenses
-  }
-}
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    fetchExpenses: fetchExpenses
-  }, dispatch);
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ExpensesPage);
+export default ExpensesPage;
