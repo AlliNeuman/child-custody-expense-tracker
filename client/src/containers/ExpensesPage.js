@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+// import { connect } from 'react-redux';
+// import { bindActionCreators } from 'redux';
 import ExpenseList from '../components/ExpenseList';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
 import SearchBar from '../components/SearchBar';
+import ExpenseNew from './ExpenseNew';
 
 class ExpensesPage extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class ExpensesPage extends Component {
 
       <SearchBar />
       <ExpenseGridHeader expenseHeaderNames={expenseHeaderNames}/>
+      <ExpenseNew />
 
       <ExpenseList expenses={this.state.expenses} />
 

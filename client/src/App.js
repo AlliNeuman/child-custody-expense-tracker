@@ -13,7 +13,6 @@ import ExpensePage from './containers/ExpensePage';
 import ExpenseNew from './containers/ExpenseNew';
 
 // CSS imports
-import {Grid} from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
