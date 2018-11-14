@@ -6,6 +6,7 @@ export default class ExpenseDatePicker extends Component {
   constructor(props) {
     super(props);
     this.handleDayChange = this.handleDayChange.bind(this);
+    
     this.state = {
       selectedDay: undefined,
     };

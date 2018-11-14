@@ -13,6 +13,7 @@ import ExpensePage from './containers/ExpensePage';
 import ExpenseNew from './containers/ExpenseNew';
 
 // CSS imports
+import {Grid} from 'react-bootstrap';
 import './App.css';
 
 class App extends Component {
@@ -24,10 +25,11 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <div className="container">
-          <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/new" component={ExpenseNew} />
             <Route exact path="/expenses" component={ExpensesPage} />
+            <Switch>
+            <Route exact path={'/expenses/new'} component={ExpenseNew} />
+
               <Route path={'/expenses/:expenseId'} component={ExpensePage} />
             </Switch>
             </div>
