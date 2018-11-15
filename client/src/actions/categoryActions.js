@@ -1,13 +1,13 @@
 import { API_URL } from './APIurl';
+import fetch from 'cross-fetch';
 
 export function fetchCategories() {
   return (dispatch) => {
-    dispatch({type: 'LOADING_CATEGORIES'})
-    return fetch(`${API_URL}/categories`)
+    dispatch({type: 'LOADING_CATEGORIES'});
+    return fetch('http://localhost:3001/posts')
     .then(response => response.json())
-    .then(categories => dispatch({
+    .then(categories => {dispatch({
       type: "FETCH_CATEGORIES",
-      payload: categories}))
-    .catch(error => console.error(error))
+      categories: categories})});
   }
 }
