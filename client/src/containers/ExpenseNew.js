@@ -22,7 +22,7 @@ class ExpenseNew extends Component {
     };
   }
 
-  componentDidMount = (props) => {
+  componentDidMount = () => {
     this.props.fetchCategories()
     debugger
   }
@@ -79,7 +79,7 @@ class ExpenseNew extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state
+    state: state.categories
   }
 }
 
