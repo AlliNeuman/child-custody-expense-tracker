@@ -7,6 +7,7 @@ class CategoryInput extends Component {
   }
 
   render () {
+    console.log(this.props);
     let categories = this.props.state.categories;
     let optionCategories = categories.map((category) =>
     <option key={category.name}>{category.name}</option>

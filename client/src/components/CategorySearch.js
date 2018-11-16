@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import {Route, withRouter} from 'react-router-dom';
+
 
 class CategoryAll extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       categories: [],
     };
   }
 
   componentDidMount() {
-    this.props.fetchCategories()
-  };
+    let initialCategories = [];
+    fetch('http://localhost:3001/categories')
+    .then(response => {
+      return response.json();
+    }).then(data => {
+      initialCategories = data.results.map((category) => {
+        return category
+      });
+      this.setState({
+        categories = initialCategories,
+      });
+    });
+  }
 
   render() {
     return (
-      <CategoryInput state={this.state}/>
+      <CategoryAll state={this.state}/>
     );
   }
 }

@@ -3,7 +3,7 @@ import expensesReducer from './expensesReducer';
 import categoriesReducer from './categoriesReducer';
 
 
-export default combineReducers({
+export const rootReducer = combineReducers({
   expenses: expensesReducer,
   categories: categoriesReducer,
 })

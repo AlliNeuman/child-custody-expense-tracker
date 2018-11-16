@@ -28,8 +28,6 @@ class App extends Component {
             <Route exact path="/expenses" component={ExpensesPage} />
             <Switch>
             <Route exact path={'/expenses/new'} component={ExpenseNew} />
-
-              <Route path={'/expenses/:expenseId'} component={ExpensePage} />
             </Switch>
             </div>
           <Footer />

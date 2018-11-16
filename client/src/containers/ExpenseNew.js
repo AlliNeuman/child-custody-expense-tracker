@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux';
 import {fetchCategories} from '../actions/categoryActions';
 import {createExpense} from '../actions/expenseActions';
 import { Form, Button, FormControl } from 'react-bootstrap';
+import CategoryInput from '../components/CategoryInput';
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -20,11 +21,6 @@ class ExpenseNew extends Component {
       reimburse: '',
       paid: '',
     };
-  }
-
-  componentDidMount = () => {
-    this.props.fetchCategories()
-    debugger
   }
 
   handleOnSubmit = event => {
@@ -50,8 +46,6 @@ class ExpenseNew extends Component {
   }
 
   render() {
-    let categories = this.props.state.categories;
-    let optionCategories = categories.map((category) => <option key={category.name} value ={category.name}>{category.name}</option>);
 
     return (
       <div>
@@ -68,7 +62,9 @@ class ExpenseNew extends Component {
       name="category"
       value={this.state.category}
       onChange={this.handleOnChange}
-      >{optionCategories}</FormControl>
+      >
+      <CategoryInput />
+      </FormControl>
 
       <Button></Button>
       </Form>
