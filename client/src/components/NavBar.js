@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import '../App.css';
 
-export const NavBar = () => {
+class NavBar extends Component {
+  render() {
     return (
       <div className="NavBar">
         <NavLink className="NavLink px-2 ml-2" to="/">
@@ -15,4 +16,7 @@ export const NavBar = () => {
 
       </div>
     );
+  }
 }
+
+export default NavBar;
