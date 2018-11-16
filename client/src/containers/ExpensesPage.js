@@ -1,46 +1,46 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-import ExpenseList from '../components/ExpenseList';
+import { fetchExpenses } from '../actions/expenseActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
-import SearchBar from '../components/SearchBar';
 import ExpenseNew from './ExpenseNew';
+import SearchBar from '../components/SearchBar';
+import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = { expenses: []};
-
+  componentDidMount() {
+    this.props.fetchExpenses();
   }
 
   render() {
-      const expenseHeaderNames = [
-        {th: "Date"},
-        {th: "Category"},
-        {th: "Description"},
-        {th: "Amount"},
-        {th: "Reimbursement Percent"},
-        {th: "Parent Obligation"},
-        {th: "Expense Paid"}
-      ];
 
     return (
-
+      <div className="ExpensesPage">
       <React.Fragment>
       <h1>Expenses</h1>
       <h3>Add an Expense</h3>
-
-      <SearchBar />
-      <ExpenseGridHeader expenseHeaderNames={expenseHeaderNames}/>
       <ExpenseNew />
-
+      <SearchBar />
+      <ExpenseGridHeader />
       <ExpenseList expenses={this.state.expenses} />
-
       </React.Fragment>
-
+      </div>
     )
   }
 }
 
-export default ExpensesPage;
+const mapStateToProps = (state) => {
+  return {
+    expenses: state.expenses,
+    categories: state.categories
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchExpenses: fetchExpenses
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesPage);

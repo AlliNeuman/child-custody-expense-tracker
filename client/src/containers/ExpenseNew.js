@@ -6,7 +6,6 @@ import { bindActionCreators } from 'redux';
 import {fetchCategories} from '../actions/categoryActions';
 import {createExpense} from '../actions/expenseActions';
 import { Form, Button, FormControl } from 'react-bootstrap';
-import CategoryInput from '../components/CategoryInput';
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -63,7 +62,7 @@ class ExpenseNew extends Component {
       value={this.state.category}
       onChange={this.handleOnChange}
       >
-      <CategoryInput />
+
       </FormControl>
 
       <Button></Button>
