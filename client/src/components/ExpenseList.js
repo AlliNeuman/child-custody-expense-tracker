@@ -1,20 +1,24 @@
 import React from 'react';
-import ExpenseListItem from 'react';
+import ExpenseDetail from './ExpenseDetail';
 import { ListGroup } from 'react-bootstrap';
 
-const ExpenseList = ({ expenses }) => {
-  const renderExpenses = expenses.map(expense =>
-    <ExpenseListItem key={expense.id} expense={expense} />
-  );
+const ExpenseList = ({ expensesList }) => {
+  if (expensesList) {
+    const expenses = expensesList.map((expense, index) => {
+      return (
+        <ExpenseDetail key={index} expense={expense} />
+      )
+    })
 
-  return (
-    <div className="expense-list">
-    <ListGroup>
-      {renderExpenses}
-    </ListGroup>
-    </div>
-  )
+    return (
+      <div className="ExpensesList">
+      {expenses}
+      </div>
+    )
+  } else {
+    return null;
+  }
 }
 
 
-export default ExpenseList;
+  export default ExpenseList;
