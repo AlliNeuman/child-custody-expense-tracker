@@ -51,20 +51,20 @@ class ExpenseNew extends Component {
     return (
       <div className="container">
         <h3>Add a New Expense</h3>
-          <div className="row justify-content-center">
+          <div className="row justify-content-left">
 
           <form id="expense-form" onSubmit={this.handleOnSubmit.bind(this)}>
 
-            <td>
+            <div className="col-sm">
             <DayPickerInput
               ref="dateInput"
               name="selectedDay"
               value={this.state.selectedDay}
               OnChange={this.handleOnChange}
               />
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
             <select
             ref="categoryInput"
             placeholder="Select"
@@ -74,9 +74,9 @@ class ExpenseNew extends Component {
             >
             {categoryOptions}
             </select>
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
               <input
               ref="descriptionInput"
               type="text"
@@ -85,9 +85,9 @@ class ExpenseNew extends Component {
               value={this.state.description}
               onChange={this.handleOnChange}
               />
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
               <input
               ref="amountInput"
               type="text"
@@ -96,9 +96,9 @@ class ExpenseNew extends Component {
               value={this.state.amount}
               onChange={this.handleOnChange}
               />
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
             <input
             ref="reimbursementInput"
             type="text"
@@ -107,9 +107,9 @@ class ExpenseNew extends Component {
             value={this.state.reimbursement}
             onChange={this.handleOnChange}
             />
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
             <input
             ref="paidInput"
             type="text"
@@ -118,9 +118,9 @@ class ExpenseNew extends Component {
             value={this.state.description}
             onChange={this.handleOnChange}
             />
-            </td>
+            </div>
 
-            <td>
+            <div className="col-sm">
             <select
             ref="paidInput"
             placeholder="select"
@@ -132,7 +132,7 @@ class ExpenseNew extends Component {
             <option value="true">Paid</option>
             <option value="false">Not Paid</option>
             </select>
-            </td>
+            </div>
 
         <input type="submit" value="Add Expense" className="btn btn-primary" />
       </form>

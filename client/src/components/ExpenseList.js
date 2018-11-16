@@ -9,7 +9,6 @@ const ExpenseList = ({ expensesList }) => {
         <ExpenseDetail key={index} expense={expense} />
       )
     })
-
     return (
       <div className="ExpensesList">
       {expenses}
@@ -20,5 +19,4 @@ const ExpenseList = ({ expensesList }) => {
   }
 }
 
-
-  export default ExpenseList;
+export default ExpenseList;
