@@ -24,9 +24,9 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { createExpense, history } = this.props
+    const { createExpense } = this.props
     createExpense(this.state);
-    history.push('/expenses');
+    // history.push('/expenses');
   }
 
   handleOnChange = event => {
@@ -37,8 +37,6 @@ class ExpenseNew extends Component {
   }
 
   render() {
-
-
     return (
       <div className="container justify-content-left">
         <h3>Add a New Expense</h3>
