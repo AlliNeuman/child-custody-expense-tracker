@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { fetchExpenses } from '../actions/expenseActions';
+import { fetchCategories } from '../actions/categoryActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
@@ -8,8 +9,8 @@ import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
-
-  componentDidMount() {
+  componentDidMount = () => {
+    this.props.fetchCategories();
     this.props.fetchExpenses();
   }
 
@@ -38,7 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchExpenses: fetchExpenses
+    fetchExpenses: fetchExpenses,
+    fetchCategories: fetchCategories
   }, dispatch);
 };
 

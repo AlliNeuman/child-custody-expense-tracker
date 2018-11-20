@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {fetchCategories} from '../actions/categoryActions';
+import { fetchCategories } from '../actions/categoryActions';
+import { createExpense } from '../actions/expenseActions';
 import {createExpense} from '../actions/expenseActions';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import CategoryInput from '../components/CategoryInput';
+import CategorySearch from '../components/CategorySearch';
 import 'react-day-picker/lib/style.css';
-import { Form, Button, FormControl } from 'react-bootstrap';
-import {categoryOptions} from '../components/categoryOptions';
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -48,6 +49,7 @@ class ExpenseNew extends Component {
 
   render() {
 
+
     return (
       <div className="container">
         <h3>Add a New Expense</h3>
@@ -72,7 +74,7 @@ class ExpenseNew extends Component {
             value={this.state.category}
             onChange={this.handleOnChange}
             >
-            {categoryOptions}
+            <CategorySearch />
             </select>
             </div>
 
@@ -144,13 +146,14 @@ class ExpenseNew extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    state: state.categories
+    categories: state.categories
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    createExpense: createExpense
+    createExpense: createExpense,
+    fetchCategories: fetchCategories
   }, dispatch)
 }
 
