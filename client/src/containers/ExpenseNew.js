@@ -25,17 +25,7 @@ class ExpenseNew extends Component {
   handleOnSubmit = event => {
     event.preventDefault();
     const { createExpense, history } = this.props
-    const { dateInput, categoryInput, descriptionInput, amountInput, reimbursementInput, paidInput} = this.refs
-
     createExpense(this.state);
-
-    dateInput.value = '';
-    categoryInput.value = '';
-    descriptionInput.value = '';
-    amountInput.value = '';
-    reimbursementInput.value = '';
-    paidInput.value = '';
-
     history.push('/expenses');
   }
 
@@ -45,8 +35,6 @@ class ExpenseNew extends Component {
       [name]: value
     });
   }
-
-
 
   render() {
 
