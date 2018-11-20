@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCategories } from '../actions/categoryActions';
 import { createExpense } from '../actions/expenseActions';
-import {createExpense} from '../actions/expenseActions';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-import CategoryInput from '../components/CategoryInput';
-import CategorySearch from '../components/CategorySearch';
-import 'react-day-picker/lib/style.css';
+import ExpenseForm from '../components/ExpenseForm';
+// import { fetchCategories } from '../actions/categoryActions';
+// import CategoryInput from '../components/CategoryInput';
+// import CategorySearch from '../components/CategorySearch';
+
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -21,13 +20,6 @@ class ExpenseNew extends Component {
       reimbursement: '',
       paid: '',
     };
-  }
-
-  handleOnChange = event => {
-    const { value, name } = event.target
-    this.setState({
-      [name]: value
-    });
   }
 
   handleOnSubmit = event => {
@@ -47,98 +39,23 @@ class ExpenseNew extends Component {
     history.push('/expenses');
   }
 
+  handleOnChange = event => {
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    });
+  }
+
+
+
   render() {
 
 
     return (
-      <div className="container">
+      <div className="container justify-content-left">
         <h3>Add a New Expense</h3>
-          <div className="row justify-content-left">
-
-          <form id="expense-form" onSubmit={this.handleOnSubmit.bind(this)}>
-
-            <div className="col-sm">
-            <DayPickerInput
-              ref="dateInput"
-              name="selectedDay"
-              value={this.state.selectedDay}
-              OnChange={this.handleOnChange}
-              />
-            </div>
-
-            <div className="col-sm">
-            <select
-            ref="categoryInput"
-            placeholder="Select"
-            name="category"
-            value={this.state.category}
-            onChange={this.handleOnChange}
-            >
-            <CategorySearch />
-            </select>
-            </div>
-
-            <div className="col-sm">
-              <input
-              ref="descriptionInput"
-              type="text"
-              placeholder="Description"
-              name="description"
-              value={this.state.description}
-              onChange={this.handleOnChange}
-              />
-            </div>
-
-            <div className="col-sm">
-              <input
-              ref="amountInput"
-              type="text"
-              placeholder="Amount"
-              name="amount"
-              value={this.state.amount}
-              onChange={this.handleOnChange}
-              />
-            </div>
-
-            <div className="col-sm">
-            <input
-            ref="reimbursementInput"
-            type="text"
-            placeholder="Reimburse Rate"
-            name="reimbursement"
-            value={this.state.reimbursement}
-            onChange={this.handleOnChange}
-            />
-            </div>
-
-            <div className="col-sm">
-            <input
-            ref="paidInput"
-            type="text"
-            placeholder="Description"
-            name="description"
-            value={this.state.description}
-            onChange={this.handleOnChange}
-            />
-            </div>
-
-            <div className="col-sm">
-            <select
-            ref="paidInput"
-            placeholder="select"
-            name="paid"
-            value={this.state.paid}
-            onChange={this.handleOnChange}
-            >
-            <option value="select">Select</option>
-            <option value="true">Paid</option>
-            <option value="false">Not Paid</option>
-            </select>
-            </div>
-
-        <input type="submit" value="Add Expense" className="btn btn-primary" />
-      </form>
-      </div>
+        <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
+        />
       </div>
     )
   }
@@ -153,7 +70,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     createExpense: createExpense,
-    fetchCategories: fetchCategories
   }, dispatch)
 }
 

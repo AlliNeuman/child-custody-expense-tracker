@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import { fetchExpenses } from '../actions/expenseActions';
-import { fetchCategories } from '../actions/categoryActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { fetchExpenses } from '../actions/expenseActions';
+import { fetchCategories } from '../actions/categoryActions';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
 import ExpenseNew from './ExpenseNew';
 import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
-  componentDidMount = () => {
-    this.props.fetchCategories();
-    this.props.fetchExpenses();
-  }
-
   render() {
 
     return (
