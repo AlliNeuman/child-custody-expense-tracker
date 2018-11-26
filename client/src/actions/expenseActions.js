@@ -29,6 +29,8 @@ export function createExpense(formContent) {
         switch(response.status) {
           case 404: dispatch({ type: "UPDATE_EXPENSE_ERROR", payload: response}); break;
           case 422: dispatch({ type: "CREATE_EXPENSE_ERROR", payload: response}); break;
+          default: dispatch({ type:
+          "EXPENSE_ERROR", payload: response });
         }
         if (response.ok) {
           return response.json()
