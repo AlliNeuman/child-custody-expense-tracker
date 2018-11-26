@@ -26,7 +26,7 @@ export function createExpense(formContent) {
       })
       .then(response => {
         debugger
-        switch (response.status) {
+        switch(response.status) {
           case 404: dispatch({ type: "UPDATE_EXPENSE_ERROR", payload: response}); break;
           case 422: dispatch({ type: "CREATE_EXPENSE_ERROR", payload: response}); break;
         }

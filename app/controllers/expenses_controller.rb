@@ -3,7 +3,6 @@ class ExpensesController < ApplicationController
 
   def index
     @expenses = Expense.order(date: :desc)
-    # need something to order by date desc
     render json: @expenses
   end
 
