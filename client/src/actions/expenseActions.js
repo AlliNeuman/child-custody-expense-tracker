@@ -25,16 +25,20 @@ export function createExpense(formContent) {
       mode: 'cors',
       })
       .then(response => {
+        debugger
         switch (response.status) {
           case 404: dispatch({ type: "UPDATE_EXPENSE_ERROR", payload: response}); break;
           case 422: dispatch({ type: "CREATE_EXPENSE_ERROR", payload: response}); break;
-        )
+        }
         if (response.ok) {
-          return resonse.json()
-        })
+          return response.json()
+        }
+      })
       .then(data => {
         if (data) {
-          dispatch({ type: "UPDATE_EXPENSE", payload: data }))
+          dispatch({ type: "UPDATE_EXPENSE", payload: data })
+        }
+      })
       .catch(error => console.error(error))
   }
 }

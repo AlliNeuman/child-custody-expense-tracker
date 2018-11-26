@@ -7,12 +7,10 @@ import NavBar from './components/NavBar';
 import ExpensesPage from './containers/ExpensesPage';
 import { fetchCategories } from './actions/categoryActions';
 import { fetchExpenses } from './actions/expenseActions';
-// import ExpensePage from './containers/ExpensePage';
+import ExpensePage from './containers/ExpensePage';
 import ExpenseNew from './containers/ExpenseNew';
 import {Footer} from './components/Footer';
 import {Home} from './components/Home';
-
-
 
 class App extends Component {
   componentDidMount = () => {
@@ -21,15 +19,19 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <Router>
         <div className="App">
           <NavBar />
           <div className="container">
-            <Route exact path="/" component={Home} />
-            <Route exact path="/expenses" component={ExpensesPage} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/expenses' component={ExpensesPage} />
+            <Route exact path='expenses/id' component={ExpensePage} />
+
             <Switch>
-            <Route exact path={'/expenses/new'} component={ExpenseNew} />
+            <Route exact path='expenses/new' component={ExpenseNew} />
+
             </Switch>
             </div>
           <Footer />
@@ -39,6 +41,10 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return { ...state }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     fetchCategories: fetchCategories,
@@ -46,4 +52,4 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

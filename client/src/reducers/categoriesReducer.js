@@ -6,13 +6,10 @@ export default (state=[], action) => {
       return state
 
     case 'FETCH_CATEGORIES':
-      return action.categories
-
-    case 'FETCH_CATEGORY':
-      return action.category
+      return [...action.payload]
 
     case 'ADD_CATEGORY':
-      return state.concat(action.category);
+      return [...state, action.payload]
 
     default:
       return state;

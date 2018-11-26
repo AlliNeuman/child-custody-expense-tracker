@@ -3,10 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createExpense } from '../actions/expenseActions';
 import ExpenseForm from '../components/ExpenseForm';
-// import { fetchCategories } from '../actions/categoryActions';
-// import CategoryInput from '../components/CategoryInput';
-// import CategorySearch from '../components/CategorySearch';
-
+import { fetchCategories } from '../actions/categoryActions';
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -27,7 +24,7 @@ class ExpenseNew extends Component {
     const { createExpense, history } = this.props
     let category = this.state.category
     createExpense({ expense: {
-      date: this.state.selectedDay
+      date: this.state.selectedDay,
       description: this.state.description,
       amount: this.state.amount,
       reimburse_percent: this.state.reimbursement,
