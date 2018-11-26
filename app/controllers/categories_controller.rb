@@ -2,9 +2,9 @@ class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:name)
     # need something to order alphabetically
-    render json: @categories.as_json(:only => [:id, :name]), status: 200
+    render json: @categories, status: 200
   end
 
   def show
@@ -15,8 +15,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      # need something here to order the categories alphabetically
-      render json: @category.as_json(:only => [:id, :name]), status: 201
+      @categories = Category.order(:name)
+      render json: @categories, status: 201
     else
       render_errors_in_json
     end
