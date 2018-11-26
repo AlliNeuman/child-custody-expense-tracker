@@ -2,9 +2,9 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :update, :destroy]
 
   def index
-    @expenses = Expense.all
+    @expenses = Expense.order(date: :desc)
     # need something to order by date desc
-    render json: @expenses.as_json(:except => [:created_at, :updated_at])
+    render json: @expenses
   end
 
   def show
@@ -15,8 +15,9 @@ class ExpensesController < ApplicationController
     # @expense = @category.expense.build(expense_params)
     @expense = Expense.new(expense_params)
     if @expense.save
+      @expenses = Expense.order(date: :desc)
       # need something here to order by date
-      render json: @expense.as_json(:except => [:created_at, :updated_at]), status: 201
+      render json: @expenses, status: 201
     else
       render_errors_in_json
     end
