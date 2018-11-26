@@ -4,23 +4,26 @@ export default (state=[], action) => {
       return state
 
     case 'FETCH_EXPENSES':
-      return action.expenses
+      return [...action.payload]
 
     case 'FETCH_EXPENSE':
-      return action.expense
+      return [...state, action.payload]
 
     case 'ADD_EXPENSE':
-      return state.concat(action.expense);
+      return [...state, action.payload];
 
     case 'DELETE_EXPENSE':
-      return state.filter(expense => expense.id !== action.id)
+      return [action.payload, ...state.filter(expense => expense.id !== action.payload.id)]
 
     case 'UPDATE_EXPENSE':
       return state.map((expense) => {
-        if (expense.id === action.expense.id) {
-          return action.expense
-        } else {
+debugger
+        if (expense.id !== action.payload.id) {
           return expense
+        }
+        return {
+          ...expense,
+          ...action.expense
         }
       });
 

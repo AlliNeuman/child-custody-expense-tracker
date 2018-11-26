@@ -24,8 +24,16 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const { createExpense } = this.props
-    createExpense(this.state);
+    const { createExpense, history } = this.props
+    let category = this.state.category
+    createExpense({ expense: {
+      date: this.state.selectedDay
+      description: this.state.description,
+      amount: this.state.amount,
+      reimburse_percent: this.state.reimbursement,
+      paid: this.state.paid,
+      category_attributes: { 'name': category}
+    }});
     // history.push('/expenses');
   }
 
