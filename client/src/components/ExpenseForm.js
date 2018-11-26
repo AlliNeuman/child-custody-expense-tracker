@@ -25,7 +25,6 @@ const ExpenseForm = (props) => {
           name="category"
           onChange={(event) => props.handleOnChange(event)}
           >
-
           </select>
         </div>
       </div>
