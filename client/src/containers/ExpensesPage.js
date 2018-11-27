@@ -4,18 +4,24 @@ import { bindActionCreators } from 'redux';
 import { fetchExpenses } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
-import ExpenseNew from './ExpenseNew';
+import ExpenseForm from './ExpenseForm';
 import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
+
+  componentDidMount = () => {
+    this.props.fetchExpenses();
+  }
+
+
   render() {
 
     return (
       <div className="ExpensesPage">
       <React.Fragment>
       <h1>Expenses</h1>
-      <ExpenseNew />
+      <ExpenseForm createExpense={this.props.createExpense} />
       <SearchBar />
       <ExpenseGridHeader />
       <ExpenseList expenses={this.props.expenses} />
