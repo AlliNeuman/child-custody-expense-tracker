@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { fetchExpenses } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
 import ExpenseGridHeader from '../components/ExpenseGridHeader';
-import ExpenseForm from './ExpenseForm';
+import ExpenseNew from './ExpenseNew';
 import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
@@ -21,7 +21,7 @@ class ExpensesPage extends Component {
       <div className="ExpensesPage">
       <React.Fragment>
       <h1>Expenses</h1>
-      <ExpenseForm createExpense={this.props.createExpense} />
+      <ExpenseNew />
       <SearchBar />
       <ExpenseGridHeader />
       <ExpenseList expenses={this.props.expenses} />
