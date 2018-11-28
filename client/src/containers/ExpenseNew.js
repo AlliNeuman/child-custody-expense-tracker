@@ -7,8 +7,8 @@ import { fetchCategories } from '../actions/categoryActions';
 
 
 class ExpenseNew extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       date: '',
@@ -55,7 +55,7 @@ class ExpenseNew extends Component {
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
       <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
-        category={this.state.category}/>
+      />
     </div>
     )
   }

@@ -4,6 +4,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
 
 const ExpenseForm = props => {
+  console.log(props)
   return (
     <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)}>
 
@@ -25,6 +26,7 @@ const ExpenseForm = props => {
           name="category"
           onChange={(event) => props.handleOnChange(event)}
           >
+
           </select>
         </div>
       </div>

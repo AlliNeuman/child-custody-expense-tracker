@@ -12,6 +12,7 @@ class ExpensesPage extends Component {
 
   componentDidMount = () => {
     this.props.fetchExpenses();
+    this.props.fetchCategories();
   }
 
 

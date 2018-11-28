@@ -18,7 +18,7 @@ export default (state=[], action) => {
     case 'UPDATE_EXPENSE':
       return state.map((expense) => {
 debugger
-        if (expense.id !== action.payload.id) {
+        if (expense.id !== action.expense.id) {
           return expense
         }
         return {

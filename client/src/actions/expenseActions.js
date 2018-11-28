@@ -2,8 +2,9 @@ import fetch from 'cross-fetch';
 
 export function fetchExpenses() {
   return (dispatch) => {
+    // debugger
     dispatch({type: 'LOADING_EXPENSES'})
-    return fetch('http://localhost:3000/expenses')
+    return fetch('http://localhost:3001/expenses')
     .then(response => response.json())
     .then(expenses => dispatch({
       type: "FETCH_EXPENSES",
@@ -15,10 +16,10 @@ export function fetchExpenses() {
 export function createExpense(formContent) {
   return (dispatch) => {
     dispatch({ type: 'ADD_EXPENSE'})
-    return fetch('http://localhost:3000/expenses', {
+    return fetch('http://localhost:3001/expenses', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'content-type': 'application/json'
       },
       body: JSON.stringify(formContent)})
       .then(response => response.json())

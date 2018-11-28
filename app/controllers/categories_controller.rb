@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.order(:name)
     # need something to order alphabetically
-    render json: @categories, status: 200
+    render json: @categories.as_json, status: 200
   end
 
   def show
