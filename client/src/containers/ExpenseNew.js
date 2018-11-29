@@ -22,7 +22,8 @@ class ExpenseNew extends Component {
 
   componentDidMount = () => {
     this.props.fetchCategories();
-    console.log(this.state.props)
+    console.log(this.state)
+    debugger
   }
 
   handleOnSubmit = event => {
@@ -55,7 +56,8 @@ class ExpenseNew extends Component {
     return (
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
-      <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} categories={categories}
+      <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
+        categories={categories}
       />
     </div>
     )

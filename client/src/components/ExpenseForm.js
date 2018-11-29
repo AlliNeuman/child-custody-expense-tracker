@@ -1,10 +1,15 @@
 import React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 // import { Form, Button } from 'react-bootstrap';
+// import CategorySearch from './CategorySearch';
 import 'react-day-picker/lib/style.css';
 
 const ExpenseForm = props => {
-  console.log(props)
+  const categoryOptions = props.categories.map((category) => {
+    return (
+      <option value={category.name}>{category.name}</option>
+    )
+  })
   return (
     <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)}>
 
@@ -26,7 +31,7 @@ const ExpenseForm = props => {
           name="category"
           onChange={(event) => props.handleOnChange(event)}
           >
-
+            {categoryOptions}
           </select>
         </div>
       </div>
