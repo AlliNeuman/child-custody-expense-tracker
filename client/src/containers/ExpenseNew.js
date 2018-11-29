@@ -7,10 +7,13 @@ import { fetchCategories } from '../actions/categoryActions';
 
 
 class ExpenseNew extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+
+    this.handleDayChange = this.handleDayChange.bind(this);
 
     this.state = {
+      selectedDay: undefined,
       date: '',
       category: '',
       description: '',
@@ -27,8 +30,13 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    debugger
+
     let category = this.state.category
+
+    console.log(this.state)
+    console.log(category)
+    debugger
+    
     this.props.createExpense({
       expense: {
         date: this.state.date,
@@ -41,6 +49,9 @@ class ExpenseNew extends Component {
           'name': category
       }
     }});
+        console.log(this.state)
+        console.log(category)
+debugger
   }
 
   handleOnChange = event => {
@@ -48,6 +59,10 @@ class ExpenseNew extends Component {
     this.setState({
         [name]: value
     });
+  }
+
+  handleDayChange = day => {
+    this.setState({ selectedDay: day })
   }
 
   render() {
@@ -58,6 +73,7 @@ class ExpenseNew extends Component {
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
       <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
+        handleDayChange={this.handleDayChange}
         categories={categories}
       />
     </div>
@@ -69,6 +85,7 @@ class ExpenseNew extends Component {
 const mapStateToProps = (state) => {
   return {
     categories: state.categories,
+    expenses: state.expenses
   }
 }
 

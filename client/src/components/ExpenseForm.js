@@ -1,6 +1,5 @@
 import React from 'react';
-import DayPickerInput from 'react-day-picker/DayPickerInput';
-// import { Form, Button } from 'react-bootstrap';
+
 // import CategorySearch from './CategorySearch';
 import 'react-day-picker/lib/style.css';
 
@@ -10,19 +9,20 @@ const ExpenseForm = props => {
       <option key={category.name} value={category.name}>{category.name}</option>
     )
   })
+
   return (
     <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)}>
 
       <div className="form-group form-row">
-        <div className="col-sm">
-          <DayPickerInput
-            className="form-control"
-            placeholder="Date"
-            name="selectedDay"
-            onChange={(event) => props.handleOnChange(event)}
-            />
+          <div className="col-sm">
+          <input
+          type="date"
+          placeholder="Date"
+          name="date"
+          onChange={(event) => props.handleOnChange(event)}
+          />
+          </div>
         </div>
-      </div>
 
       <div className="form-group form-row">
         <div className="col-sm">
