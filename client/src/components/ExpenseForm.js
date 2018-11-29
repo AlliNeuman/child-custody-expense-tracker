@@ -7,7 +7,7 @@ import 'react-day-picker/lib/style.css';
 const ExpenseForm = props => {
   const categoryOptions = props.categories.map((category) => {
     return (
-      <option value={category.name}>{category.name}</option>
+      <option key={category.name} value={category.name}>{category.name}</option>
     )
   })
   return (
@@ -31,6 +31,7 @@ const ExpenseForm = props => {
           name="category"
           onChange={(event) => props.handleOnChange(event)}
           >
+          <option key="select" value="select">Select</option>
             {categoryOptions}
           </select>
         </div>

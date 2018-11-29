@@ -1,4 +1,5 @@
 export default (state=[], action) => {
+  
   switch(action.type) {
     case 'LOADING_EXPENSES':
       return state
@@ -14,7 +15,7 @@ export default (state=[], action) => {
 
     case 'DELETE_EXPENSE':
     return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
-    
+
     case 'UPDATE_EXPENSE':
       return state.map((expense) => {
 debugger

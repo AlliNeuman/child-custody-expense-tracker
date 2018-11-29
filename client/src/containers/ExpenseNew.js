@@ -23,11 +23,11 @@ class ExpenseNew extends Component {
   componentDidMount = () => {
     this.props.fetchCategories();
     console.log(this.state)
-    debugger
   }
 
   handleOnSubmit = event => {
     event.preventDefault();
+    debugger
     let category = this.state.category
     this.props.createExpense({
       expense: {
@@ -54,12 +54,14 @@ class ExpenseNew extends Component {
     const { categories } = this.props
 
     return (
+      <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
       <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
         categories={categories}
       />
     </div>
+    </React.Fragment>
     )
   }
 }
