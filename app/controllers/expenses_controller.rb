@@ -13,15 +13,15 @@ class ExpensesController < ApplicationController
   def create
     # @expense = @category.expense.build(expense_params)
     @expense = Expense.new(expense_params)
-binding.pry
+console.log(@expense)
     if @expense.save
       @expenses = Expense.order(date: :desc)
-binding.pry
+console.log(@expenses)
       # need something here to order by date
       render json: @expenses, status: 201
     else
       render_errors_in_json
-dinding.pry
+debugger
     end
   end
 
@@ -44,7 +44,7 @@ binding.pry
 
   def set_expense
     @expense = Expense.find(params[:id])
-binding.pry
+debugger
     if !@expense
       render json: { message: "Expense not found"}, status: 404
     end
@@ -55,12 +55,11 @@ binding.pry
       errors: {
         messages: @expense.errors.messages
       }
-binding.pry
     }, status: 422
   end
 
   def expense_params
-    params.require(:expense).permit(:date, :amount, :description, :reimburse_percent, :paid, :category_ids => [], :category_attributes => [:name]
+    params.require(:expense).permit(:date, :description, :amount, :reimburse_percent, :paid, :category_ids => [], :category_attributes => [:name]
     )
   end
 

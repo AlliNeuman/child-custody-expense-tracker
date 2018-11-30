@@ -11,14 +11,14 @@ export default (state=[], action) => {
       return action.payload
 
     case 'ADD_EXPENSE':
-      return state.concat(action.payload)
+      return Object.assign({}, state, action.payload);
 
     case 'DELETE_EXPENSE':
     return [action.payload, ...state.filter(shelter=> shelter.id !== action.payload.id)]
 
     case 'UPDATE_EXPENSE':
-      return [...state.filter(expense => expense.id !== action.payload.id), action.payload]
-    
+      return Object.assign({}, state, action.payload);
+
     default:
       return state;
   }

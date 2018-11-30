@@ -1,12 +1,11 @@
 import React from 'react';
 
 // import CategorySearch from './CategorySearch';
-import 'react-day-picker/lib/style.css';
 
 const ExpenseForm = props => {
   const categoryOptions = props.categories.map((category) => {
     return (
-      <option key={category.name} value={category.name}>{category.name}</option>
+      <option key={category.name} value={category.name} id={category.id}>{category.name}</option>
     )
   })
 
@@ -64,7 +63,7 @@ const ExpenseForm = props => {
           <input
           type="text"
           placeholder="Reimbursement Rate"
-          name="reimbursement"
+          name="reimburse_percent"
           onChange={(event) => props.handleOnChange(event)}
           />
           </div>
@@ -79,7 +78,7 @@ const ExpenseForm = props => {
             >
             <option value="select">Select</option>
             <option value="true">Paid</option>
-            <option value="false">NotPaid</option>
+            <option value="false">Not Paid</option>
             </select>
           </div>
         </div>
