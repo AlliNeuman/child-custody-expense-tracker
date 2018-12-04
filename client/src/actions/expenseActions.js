@@ -14,6 +14,7 @@ export function fetchExpenses() {
 }
 
 export function createExpense(formContent) {
+  console.log(formContent)
   return (dispatch) => {
     dispatch({ type: 'ADD_EXPENSE'})
     return fetch('http://localhost:3000/expenses', {

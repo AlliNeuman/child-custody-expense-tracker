@@ -5,7 +5,7 @@ import React from 'react';
 const ExpenseForm = props => {
   const categoryOptions = props.categories.map((category) => {
     return (
-      <option key={category.name} value={category.name} id={category.id}>{category.name}</option>
+      <option key={category.name} value={category.id} id={category.id}>{category.name}</option>
     )
   })
 
@@ -30,7 +30,7 @@ const ExpenseForm = props => {
           name="category"
           onChange={(event) => props.handleOnChange(event)}
           >
-          <option key="select" value="select">Select</option>
+          <option selected={true} disabled="disabled" hidden={true} >Select Category</option>
             {categoryOptions}
           </select>
         </div>
@@ -76,7 +76,7 @@ const ExpenseForm = props => {
             name="paid"
             onChange={(event) => props.handleOnChange(event)}
             >
-            <option value="select">Select</option>
+            <option hidden={true} selected={true} disabled="disabled">Select Paid</option>
             <option value="true">Paid</option>
             <option value="false">Not Paid</option>
             </select>
