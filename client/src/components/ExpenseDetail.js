@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class ExpenseDetail extends Component {
+  constructor(props) {
+    super(props)
 
+    this.state = {
+      expense: props.expense
+    }
+  }
   render() {
     return (
       <div className="row">
         <div className="col">
-          <Link key={this.props.expense.id} to={`/expenses/${this.props.expense.id}`}> {this.props.expense.date}
+          <Link className="text-dark" to={`/expenses/${this.state.expense.id}`}> {this.state.expense.date}
           </Link>
         </div>
 

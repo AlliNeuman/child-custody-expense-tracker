@@ -7,19 +7,18 @@ import ExpenseGridHeader from '../components/ExpenseGridHeader';
 // import ExpenseNew from './ExpenseNew';
 import ExpenseNew from './ExpenseNew';
 import SearchBar from '../components/SearchBar';
-import ExpenseList from '../components/ExpenseList';
+// import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
 
   componentDidMount = () => {
     this.props.fetchExpenses();
     this.props.fetchCategories();
-
   }
 
 
   render() {
-// debugger
+    debugger
     return (
       <div className="container">
       <React.Fragment>
@@ -27,7 +26,7 @@ class ExpensesPage extends Component {
       <ExpenseNew categories={this.props.categories}/>
       <SearchBar />
       <ExpenseGridHeader />
-      <ExpenseList expenses={this.props.expenses} />
+
 
       </React.Fragment>
       </div>
