@@ -11,7 +11,6 @@ export function fetchExpenses() {
       payload: expenses}))
     .catch(error => console.error(error))
   }
-  debugger
 }
 
 export function createExpense(formContent) {

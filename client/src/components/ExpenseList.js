@@ -3,15 +3,16 @@ import ExpenseDetail from './ExpenseDetail';
 // import { ListGroup } from 'react-bootstrap';
 
 const ExpenseList = (props) => {
-  debugger
-  const renderExpenses = props.expenses.map(expense => {
+  // debugger
+  const renderExpenses = props.expenses.map((expense) => {
     return (
-      <ExpenseDetail expense={expense} />
+      <ExpenseDetail key={expense.id} expense={expense} />
     )
-  })
+  }
+)
   return (
     <div className="ExpensesList">
-    {renderExpenses}
+      <div>{renderExpenses}</div>
     </div>
   )
 }

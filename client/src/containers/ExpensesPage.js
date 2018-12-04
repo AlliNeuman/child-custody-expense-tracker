@@ -10,19 +10,16 @@ import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidMount = () => {
     this.props.fetchExpenses();
     this.props.fetchCategories();
-    debugger
+
   }
 
 
   render() {
-
+// debugger
     return (
       <div className="container">
       <React.Fragment>
@@ -31,6 +28,7 @@ class ExpensesPage extends Component {
       <SearchBar />
       <ExpenseGridHeader />
       <ExpenseList expenses={this.props.expenses} />
+
       </React.Fragment>
       </div>
     )

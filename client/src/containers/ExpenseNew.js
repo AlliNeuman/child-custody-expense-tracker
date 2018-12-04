@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ExpenseForm from '../components/ExpenseForm';
 import { createExpense } from '../actions/expenseActions';
-import { fetchCategories } from '../actions/categoryActions';
-
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -31,7 +29,7 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    // 
+    //
     // console.log(this.state)
     // console.log(this.state.category)
     // debugger

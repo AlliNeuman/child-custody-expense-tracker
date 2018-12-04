@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class ExpenseDetail extends Component {
-  constructor() {
-    super()
-  }
 
   render() {
     return (
@@ -30,13 +27,13 @@ class ExpenseDetail extends Component {
         {this.props.expense.reimburse_percent}
         </div>
 
-        // <div className="col">
-        // {this.props.expense.obligation}
-        // </div>
-        //
-        // <div className="col">
-        // {this.props.expense.paid}
-        // </div>
+        <div className="col">
+        {this.props.expense.obligation}
+        </div>
+
+        <div className="col">
+        {this.props.expense.paid}
+        </div>
       </div>
     )
   }
