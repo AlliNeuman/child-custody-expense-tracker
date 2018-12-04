@@ -23,7 +23,7 @@ class ExpensesPage extends Component {
       <div className="ExpensesPage">
       <React.Fragment>
       <h1>Expenses</h1>
-      <ExpenseNew />
+      <ExpenseNew categories={this.props.categories}/>
       <SearchBar />
       <ExpenseGridHeader />
       <ExpenseList expenses={this.props.expenses} />

@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ExpenseForm from '../components/ExpenseForm';
-import { createExpense } from '../actions/expenseActions';
-import { fetchCategories } from '../actions/categoryActions';
+import { createCategory } from '../actions/categoryActions'
 
 
-class ExpenseNew extends Component {
+class CategoryNew extends Component {
   constructor(props) {
     super(props)
 
@@ -14,39 +12,24 @@ class ExpenseNew extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this)
 
     this.state = {
-      date: '',
-      category: '',
-      description: '',
-      amount: '',
-      reimburse_percent: '',
-      paid: '',
+      name: ''
     }
 
 
   }
 
-  // componentDidMount = () => {
-  //   this.props.fetchCategories();
-  // }
-
   handleOnSubmit = event => {
     event.preventDefault();
 
     console.log(this.state)
-    console.log(this.state.category)
+
     // debugger
 
-    this.props.createExpense({
-      expense: {
-        date: this.state.date,
-        category_id: this.state.category,
-        description: this.state.description,
-        amount: this.state.amount,
-        reimburse_percent: this.state.reimburse_percent,
-        paid: this.state.paid,
-
+    this.props.createCategory({
+      category: {
+        name: this.state.name,
     }});
-    console.log(this.state.category)
+    console.log(this.state.category))
 
 // debugger
   }
@@ -63,10 +46,9 @@ class ExpenseNew extends Component {
     return (
       <React.Fragment>
       <div className="container justify-content-left">
-      <h3>Add an Expense</h3>
-      <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
-        categories={this.props.categories}
-      />
+      <h3>Add a Category</h3>
+      
+
     </div>
     </React.Fragment>
     )
@@ -82,7 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    // fetchCategories: fetchCategories,
+    fetchCategories: fetchCategories,
     createExpense: createExpense,
   }, dispatch);
 };
