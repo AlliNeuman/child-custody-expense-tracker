@@ -31,9 +31,9 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state)
-    console.log(this.state.category)
+    // 
+    // console.log(this.state)
+    // console.log(this.state.category)
     // debugger
 
     this.props.createExpense({
@@ -46,7 +46,7 @@ class ExpenseNew extends Component {
         paid: this.state.paid,
 
     }});
-    console.log(this.state.category)
+    // console.log(this.state.category)
 
 // debugger
   }
@@ -82,7 +82,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    // fetchCategories: fetchCategories,
     createExpense: createExpense,
   }, dispatch);
 };

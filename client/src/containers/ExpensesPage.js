@@ -10,17 +10,21 @@ import SearchBar from '../components/SearchBar';
 import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
+  constructor(props) {
+    super(props)
+  }
 
   componentDidMount = () => {
     this.props.fetchExpenses();
     this.props.fetchCategories();
+    debugger
   }
 
 
   render() {
 
     return (
-      <div className="ExpensesPage">
+      <div className="container">
       <React.Fragment>
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>

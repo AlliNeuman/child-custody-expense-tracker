@@ -2,21 +2,19 @@ import React from 'react';
 import ExpenseDetail from './ExpenseDetail';
 // import { ListGroup } from 'react-bootstrap';
 
-const ExpenseList = ({ expensesList }) => {
-  if (expensesList) {
-    const expenses = expensesList.map((expense, index) => {
-      return (
-        <ExpenseDetail key={index} expense={expense} />
-      )
-    })
+const ExpenseList = (props) => {
+  debugger
+  const renderExpenses = props.expenses.map(expense => {
     return (
-      <div className="ExpensesList">
-      {expenses}
-      </div>
+      <ExpenseDetail expense={expense} />
     )
-  } else {
-    return null;
-  }
+  })
+  return (
+    <div className="ExpensesList">
+    {renderExpenses}
+    </div>
+  )
 }
+
 
 export default ExpenseList;
