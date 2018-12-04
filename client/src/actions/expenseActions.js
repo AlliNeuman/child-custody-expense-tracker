@@ -1,8 +1,6 @@
-import fetch from 'cross-fetch';
-
 export function fetchExpenses() {
   return (dispatch) => {
-    debugger
+    // debugger
     dispatch({type: 'LOADING_EXPENSES'})
     return fetch('http://localhost:3000/expenses')
     .then(response => response.json())

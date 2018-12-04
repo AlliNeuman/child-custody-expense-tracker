@@ -2,7 +2,7 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: [:show, :update, :destroy]
 
   def index
-    @expenses = Expense.order(date: :desc)
+    @expenses = Expense.all.order(date: :desc)
     render json: @expenses
   end
 
@@ -12,7 +12,6 @@ class ExpensesController < ApplicationController
 
   def create
     @category = Category.find_by(id: expense_params['category_id'])
-binding.pry
     @expense = @category.expenses.build(expense_params)
     if @expense.save
       @expenses = Expense.order(date: :desc)
@@ -40,7 +39,6 @@ binding.pry
 
   def set_expense
     @expense = Expense.find(params[:id])
-debugger
     if !@expense
       render json: { message: "Expense not found"}, status: 404
     end

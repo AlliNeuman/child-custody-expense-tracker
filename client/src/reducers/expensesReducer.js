@@ -5,6 +5,7 @@ export default (state=[], action) => {
       return state
 
     case 'FETCH_EXPENSES':
+    console.log(action.payload)
       return action.payload
 
     case 'FETCH_EXPENSE':

@@ -7,7 +7,7 @@ import ExpenseGridHeader from '../components/ExpenseGridHeader';
 // import ExpenseNew from './ExpenseNew';
 import ExpenseNew from './ExpenseNew';
 import SearchBar from '../components/SearchBar';
-// import ExpenseList from '../components/ExpenseList';
+import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
 
@@ -18,18 +18,17 @@ class ExpensesPage extends Component {
 
 
   render() {
-    debugger
+    // debugger
     return (
-      <div className="container">
       <React.Fragment>
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>
-      <SearchBar />
       <ExpenseGridHeader />
 
+      <ExpenseList expensesList={this.props.expenses} />
 
-      </React.Fragment>
-      </div>
+        </React.Fragment>
+
     )
   }
 }

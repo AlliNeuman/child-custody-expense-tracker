@@ -1,5 +1,3 @@
-import fetch from 'cross-fetch';
-
 export function fetchCategories() {
   return (dispatch) => {
     dispatch({type: 'LOADING_CATEGORIES'})

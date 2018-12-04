@@ -14,14 +14,14 @@ class ExpenseGridHeader extends Component {
     ];
 
     return (
-      <React.Fragment>
+
       <div className="row">
       {expenseHeaderNames.map(expenseHeaderName =>
             <div className="col mx-1 px-3" key={expenseHeaderName.th}>
             {expenseHeaderName.th}
             </div>)}
           </div>
-      </React.Fragment>
+
     )
   }
 }

@@ -9,36 +9,47 @@ class ExpenseListItem extends Component {
     super(props);
 
     this.state = {
-      expense: props.expense
+      id: props.id,
+      date: props.date,
+      category: props.category,
+      description: props.description,
+      amount: props.amount,
+      reimburse_percent: props.reimburse_percent
     }
   }
 
   render() {
     return (
-      <div className="row">
-        <div className="col">
-          <Link className="text-dark" to={`/expenses/${this.state.expense.id}`}>
-          {this.state.expense.date}
+      <React.Fragment>
+      <div className="table row text-center">
+        <
+        div className="col">
+          <Link className="text-dark" to={`/expenses/${this.state.id}`}>
+          {this.state.date}
           </Link>
         </div>
 
         <div className="col">
-          {this.state.expense.category}
+          {this.state.category}
         </div>
 
         <div className="col">
-          {this.state.expense.description}
+          {this.state.description}
         </div>
 
         <div className="col">
-          {this.state.expense.amount}
+          {this.state.amount}
         </div>
 
         <div className="col">
-          {this.state.expense.reimburse_percent}
+          {this.state.reimburse_percent}
         </div>
 
-    </div>
+        <div className="col">
+
+        </div>
+        </div>
+    </React.Fragment>
     )
   }
 }
