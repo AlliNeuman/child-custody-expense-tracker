@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import ParentObligation from './ParentObligation';
 import ExpensePaidButton from './ExpensePaidButton';
 
 class ExpenseListItem extends Component {
@@ -19,36 +18,40 @@ class ExpenseListItem extends Component {
   }
 
   render() {
+    const a = this.state.amount;
+    const b = this.state.reimburse_percent
+    const parentObligation = parseFloat(a*b).toFixed(2)
+
     return (
       <React.Fragment>
-      <div className="table row text-center">
-        <
-        div className="col">
+      <tr>
+        <td className="col mx-1 px-3">
           <Link className="text-dark" to={`/expenses/${this.state.id}`}>
           {this.state.date}
           </Link>
-        </div>
+        </td>
 
-        <div className="col">
+        <td className="col mx-1 px-3">
           {this.state.category}
-        </div>
+        </td>
 
-        <div className="col">
+        <td className="col mx-1 px-3">
           {this.state.description}
-        </div>
+        </td>
 
-        <div className="col">
-          {this.state.amount}
-        </div>
+        <td className="col mx-1 px-3">
+          ${this.state.amount}
+        </td>
 
-        <div className="col">
+        <td className="col mx-1 px-3">
           {this.state.reimburse_percent}
-        </div>
+        </td>
+        <td>
+        ${parentObligation}
+        </td>
 
-        <div className="col">
 
-        </div>
-        </div>
+        </tr>
     </React.Fragment>
     )
   }

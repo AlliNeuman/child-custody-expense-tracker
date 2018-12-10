@@ -19,9 +19,9 @@ const ExpenseList = ({expensesList}) => {
   }
 )
   return (
-    <div>
+    <tbody>
       {renderExpenses}
-    </div>
+    </tbody>
   )
 }
 

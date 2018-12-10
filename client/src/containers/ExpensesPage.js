@@ -23,11 +23,13 @@ class ExpensesPage extends Component {
       <React.Fragment>
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>
+      <table>
+      <thead>
       <ExpenseGridHeader />
-
+      </thead>
       <ExpenseList expensesList={this.props.expenses} />
-
-        </React.Fragment>
+      </table>
+      </React.Fragment>
 
     )
   }
