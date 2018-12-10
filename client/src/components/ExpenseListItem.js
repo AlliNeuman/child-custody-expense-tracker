@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
+import PaidButton from './PaidButton';
+// import PaidAmount from './PaidAmount';
 
 class ExpenseListItem extends Component {
 
@@ -18,20 +20,14 @@ class ExpenseListItem extends Component {
     }
   }
 
-  expensePaid = () => {
-    const {expenseAmount} = this.state.amount;
-    if (this.state.paid) {
-      return parseFloat(-1*expenseAmount);
-    } else {
-      return { expenseAmount };
-    }
-  }
-
   render() {
     const a = this.state.amount;
-    const b = this.state.reimburse_percent
-    const parentObligation = parseFloat(a*b).toFixed(2)
+    const r = this.state.reimburse_percent
+    const parentObligation = parseFloat(a*r).toFixed(2)
     // debugger
+
+    const p = parseFloat(parentObligation*(-1)).toFixed(2)
+
 
     return (
       <React.Fragment>
@@ -66,8 +62,10 @@ class ExpenseListItem extends Component {
         </td>
 
         <td>
-
+        <PaidButton paid={this.state.paid}/>
         </td>
+
+
 
 
         </tr>
