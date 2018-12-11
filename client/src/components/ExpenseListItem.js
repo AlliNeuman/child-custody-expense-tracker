@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {Button} from 'react-bootstrap';
-
+import {updateExpense} from '../actions/expenseActions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 
 class ExpenseListItem extends Component {
@@ -26,6 +28,12 @@ class ExpenseListItem extends Component {
       this.setState( state => ({
         paid: !state.paid
       }));
+      this.props.updateExpense({
+        expense: {
+          paid: this.state.paid
+        },
+        id: this.state.id
+      })
     }
 
     render() {
@@ -76,4 +84,10 @@ class ExpenseListItem extends Component {
     }
   }
 
-  export default ExpenseListItem;
+  const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators({
+      updateExpense: updateExpense
+    }, dispatch);
+  };
+
+  export default connect(null, mapDispatchToProps)(ExpenseListItem);

@@ -14,7 +14,7 @@ export function fetchExpenses() {
 export function createExpense(formContent) {
   console.log(formContent)
   return (dispatch) => {
-    dispatch({ type: 'ADD_EXPENSE'})
+    dispatch({ type: 'CREATING_EXPENSE'})
     return fetch('http://localhost:3000/expenses', {
       method: 'POST',
       headers: {
@@ -23,8 +23,25 @@ export function createExpense(formContent) {
       body: JSON.stringify(formContent)})
       .then(response => response.json())
       .then(expenses => dispatch({
-        type: "UPDATE_EXPENSE",
+        type: "ADD_EXPENSE",
         payload: expenses}))
+      .catch(error => console.error(error))
+  }
+}
+
+export function updateExpense(expense) {
+  return (dispatch) => {
+    return fetch('http://localhost:3000/expenses', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(expense)})
+      .then(response => response.json())
+      .then(expense => dispatch({
+        type: "UPDATE_EXPENSE",
+        payload: expense
+      }))
       .catch(error => console.error(error))
   }
 }
