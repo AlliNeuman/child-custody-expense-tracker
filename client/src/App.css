@@ -26,7 +26,7 @@ footer {
   margin-right: auto;
 }
 
-td {
+td, th {
   text-align: center;
-  
+
 }
