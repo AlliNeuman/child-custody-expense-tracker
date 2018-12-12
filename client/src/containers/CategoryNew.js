@@ -20,18 +20,11 @@ class CategoryNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-
-    console.log(this.state)
-
-    // debugger
-
     this.props.createCategory({
       category: {
         name: this.state.name,
-    }});
-    console.log(this.state.category))
+    }})
 
-// debugger
   }
 
   handleOnChange = event => {
@@ -47,8 +40,23 @@ class CategoryNew extends Component {
       <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add a Category</h3>
-      
+      <form id="category-form" onSubmit={this.handleOnSubmit}>
+        <div className="form-group form-row">
+          <div className="col-sm">
+          <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          value={this.state.name}
+          onChange={this.handleOnChange}
+          />
+          </div>
+        </div>
 
+        <input
+        type="submit"
+        className="btn btn-primary" />
+      </form>
     </div>
     </React.Fragment>
     )
@@ -64,9 +72,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchCategories: fetchCategories,
-    createExpense: createExpense,
+    createCategory: createCategory,
   }, dispatch);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExpenseNew);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryNew);
