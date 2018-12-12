@@ -18,7 +18,7 @@ export default (state=[], action) => {
     return [action.payload, ...state.filter(expense => expense.id !== action.payload.id)]
 
     case 'UPDATE_EXPENSE':
-      return Object.assign({}, ...state.filter(expense => expense.id !== action.payload.id));
+      return [...state.filter(expense => expense.id !== action.payload.id), action.payload];
 
     default:
       return state;

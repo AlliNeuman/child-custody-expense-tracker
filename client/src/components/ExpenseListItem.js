@@ -30,7 +30,7 @@ class ExpenseListItem extends Component {
       }));
       this.props.updateExpense({
         expense: {
-          paid: this.state.paid
+          paid: !this.state.paid
         },
         id: this.state.id
       })
@@ -74,7 +74,7 @@ class ExpenseListItem extends Component {
 
         <td>
         <Button onClick={this.handlePaidClick}>
-        {this.state.paid ? 'Not Paid' : 'Paid'}
+        {this.state.paid ? 'Paid' : 'Not Paid'}
         </Button>
         </td>
 
@@ -83,6 +83,7 @@ class ExpenseListItem extends Component {
       )
     }
   }
+
 
   const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({

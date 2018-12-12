@@ -31,8 +31,8 @@ export function createExpense(formContent) {
 
 export function updateExpense(expense) {
   return (dispatch) => {
-    return fetch('http://localhost:3000/expenses', {
-      method: 'POST',
+    return fetch(`http://localhost:3000/expenses/${expense.id}`, {
+      method: 'PATCH',
       headers: {
         'content-type': 'application/json'
       },
