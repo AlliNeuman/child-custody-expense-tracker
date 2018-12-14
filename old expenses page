@@ -4,3 +4,17 @@
       </thead>
       <ExpenseList expensesList={this.props.expenses} />
       </table>
+
+
+
+////OLD PAID BUTTON//////
+
+      <button className="btn-sm" onClick={this.handleClick}>
+      {this.state.paid ? 'Not Paid' : 'Paid'}
+      </button>
+
+
+////OLD BUTTON ON EXPENSELISTITEM.JS/////
+        <Button onClick={this.handlePaidClick}>
+        {this.state.paid ? 'Paid' : 'Not Paid'}
+        </Button>

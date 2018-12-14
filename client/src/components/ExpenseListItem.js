@@ -39,6 +39,18 @@ class ExpenseListItem extends Component {
     render() {
       const paidObligation = parseFloat((-1)*this.state.parentObligation).toFixed(2);
 
+      const renderButton = () => {
+        if (this.state.paid) {
+          return (
+            <button className="btn-sm btn-success" onClick={this.handleClick}>Paid</button>
+          )
+        } else {
+          return (
+            <button className="btn-sm btn-danger" onClick={this.handleClick}>Not Paid</button>
+          )
+        }
+      }
+
       return (
         <React.Fragment>
         <tr>
@@ -73,9 +85,7 @@ class ExpenseListItem extends Component {
         </td>
 
         <td>
-        <Button onClick={this.handlePaidClick}>
-        {this.state.paid ? 'Paid' : 'Not Paid'}
-        </Button>
+        {renderButton}
         </td>
 
         </tr>

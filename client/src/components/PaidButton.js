@@ -19,10 +19,18 @@ class PaidButton extends Component {
   }
 
   render() {
+    const renderButton = () => {
+      this.state.paid ?
+          '<button className="btn-sm btn-success" onClick={this.handleClick}>Paid</button>' :
+
+          '<button className="btn-sm btn-danger" onClick={this.handleClick}>Not Paid</button>'
+        )
+      }
+    }
     return (
-      <Button onClick={this.handleClick}>
-      {this.state.paid ? 'Not Paid' : 'Paid'}
-      </Button>
+            <button className="btn-sm" onClick={this.handleClick}>
+            {this.state.paid ? 'Not Paid' : 'Paid'}
+            </button>
     );
   }
 }
