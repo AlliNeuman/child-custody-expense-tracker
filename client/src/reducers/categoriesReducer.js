@@ -12,7 +12,7 @@ export default (state=[], action) => {
       return action.payload
 
     case 'ADD_CATEGORY':
-      return state.concat(action.payload);
+      return Object.assign({}, state, action.payload);
 
 
     default:
