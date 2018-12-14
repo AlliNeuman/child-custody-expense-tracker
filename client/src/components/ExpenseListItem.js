@@ -85,7 +85,9 @@ class ExpenseListItem extends Component {
         </td>
 
         <td>
-        {renderButton}
+        <button className="btn btn-secondary btn-sm" onClick={this.handlePaidClick}>
+        {this.state.paid ? 'Paid' : 'Not Paid'}
+        </button>
         </td>
 
         </tr>
