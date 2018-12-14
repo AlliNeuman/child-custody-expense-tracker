@@ -7,6 +7,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    # @expenses = @category.expenses.all
     render json: @category, status: 200
   end
 

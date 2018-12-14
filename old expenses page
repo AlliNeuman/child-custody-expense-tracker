@@ -1,0 +1,6 @@
+      <table>
+      <thead>
+      <ExpenseGridHeader />
+      </thead>
+      <ExpenseList expensesList={this.props.expenses} />
+      </table>

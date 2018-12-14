@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchExpenses } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
-import ExpenseGridHeader from '../components/ExpenseGridHeader';
+// import ExpenseGridHeader from '../components/ExpenseGridHeader';
 // import ExpenseNew from './ExpenseNew';
 import ExpenseNew from './ExpenseNew';
-import SearchBar from '../components/SearchBar';
-import ExpenseList from '../components/ExpenseList';
+import ExpenseTable from './ExpenseTable';
+// import SearchBar from '../components/SearchBar';
+// import ExpenseList from '../components/ExpenseList';
 
 class ExpensesPage extends Component {
 
@@ -23,12 +24,7 @@ class ExpensesPage extends Component {
       <React.Fragment>
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>
-      <table>
-      <thead>
-      <ExpenseGridHeader />
-      </thead>
-      <ExpenseList expensesList={this.props.expenses} />
-      </table>
+      <ExpenseTable expensesList={this.props.expenses} />
       </React.Fragment>
 
     )
