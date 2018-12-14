@@ -49,11 +49,11 @@ class ExpenseListItem extends Component {
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.category}
+        {this.state.category.toUpperCase()}
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.description}
+        {this.state.description.toUpperCase()}
         </td>
 
         <td className="col mx-1 px-3">
