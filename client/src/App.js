@@ -6,10 +6,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ExpensesPage from './containers/ExpensesPage';
 import CategoriesPage from './containers/CategoriesPage';
-import CategoryPage from './containers/CategoryPage';
+// import CategoryPage from './containers/CategoryPage';
 import CategoryNew from './containers/CategoryNew';
 import ExpenseNew from './containers/ExpenseNew';
-import ExpensePage from './containers/ExpensePage';
+// import ExpensePage from './containers/ExpensePage';
 import {Footer} from './components/Footer';
 import {Home} from './components/Home';
 
@@ -29,9 +29,7 @@ class App extends Component {
             <Route exact path='/categories' component={CategoriesPage} />
             <Switch>
             <Route exact path='expenses/new' component={ExpenseNew} />
-            <Route exact path='expenses/:id' component={ExpensePage} />
-            <Route exact path='categories/new' component={CategoryNew} />
-            <Route exact path='categories/:id' component={CategoryPage} />
+            <Route exact path='/categories/new' component={CategoryNew} />
             </Switch>
             </div>
           <Footer />
