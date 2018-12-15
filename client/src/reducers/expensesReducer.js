@@ -4,6 +4,9 @@ export default (state=[], action) => {
     case 'LOADING_EXPENSES':
       return state
 
+    case 'LOADING_EXPENSE':
+      return state
+
     case 'FETCH_EXPENSES':
     console.log(action.payload)
       return action.payload

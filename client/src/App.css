@@ -7,12 +7,13 @@
 }
 
 
-footer {
-  position: absolute;
-  bottom: 30px;
+/* footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
   width: 100%;
   text-align: center;
-}
+} */
 
 .SearchBar {
   width: 50%;

@@ -11,6 +11,18 @@ export function fetchExpenses() {
   }
 }
 
+export function fetchExpense(expense) {
+  return (dispatch) => {
+    dispatch({type: 'LOADING_EXPENSE'})
+    return fetch(`http://localhost:3000/expenses/${expense.id}`)
+    .then(response => response.json())
+    .then(expense => dispatch({
+      type: "FETCH_EXPENSE",
+      payload: expense}))
+    .catch(error => console.error(error))
+  }
+}
+
 export function createExpense(formContent) {
   console.log(formContent)
   return (dispatch) => {
