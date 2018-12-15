@@ -15,6 +15,7 @@ const ExpenseForm = props => {
       <div className="form-group form-row">
           <div className="col-sm">
           <input
+          className="form-control input-sm"
           type="date"
           placeholder="Date"
           name="date"
@@ -26,6 +27,7 @@ const ExpenseForm = props => {
       <div className="form-group form-row">
         <div className="col-sm">
           <select
+          className="form-control input-sm"
           placeholder="Select"
           name="category"
           onChange={(event) => props.handleOnChange(event)}
@@ -39,6 +41,7 @@ const ExpenseForm = props => {
       <div className="form-group form-row">
           <div className="col-sm">
           <input
+          className="form-control input-sm"
           type="text"
           placeholder="Description"
           name="description"
@@ -50,6 +53,7 @@ const ExpenseForm = props => {
       <div className="form-group form-row">
           <div className="col-sm">
           <input
+          className="form-control input-sm"
           type="text"
           placeholder="Amount"
           name="amount"
@@ -61,6 +65,7 @@ const ExpenseForm = props => {
       <div className="form-group form-row">
           <div className="col-sm">
           <input
+          className="form-control input-sm"
           type="text"
           placeholder="Reimbursement Rate"
           name="reimburse_percent"
@@ -72,6 +77,7 @@ const ExpenseForm = props => {
         <div className="form-group form-row">
             <div className="col-sm">
             <select
+            className="form-control input-sm"
             placeholder="Select"
             name="paid"
             onChange={(event) => props.handleOnChange(event)}
@@ -84,6 +90,7 @@ const ExpenseForm = props => {
         </div>
 
         <input
+        className="form-control input-sm"
         type="submit"
         className="btn btn-primary"/>
     </form>
