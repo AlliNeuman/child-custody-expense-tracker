@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import CategorySearch from './CategorySearch';
-
 const ExpenseForm = props => {
   const categoryOptions = props.categories.map((category) => {
     return (

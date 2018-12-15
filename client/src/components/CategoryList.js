@@ -12,9 +12,9 @@ const CategoryList = ({categoriesList}) => {
     )
   })
   return (
-    <ol>
+    <div>
     {renderCategories}
-    </ol>
+    </div>
   )
 }
 

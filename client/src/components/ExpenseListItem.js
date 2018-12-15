@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {Button} from 'react-bootstrap';
 import {updateExpense} from '../actions/expenseActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
