@@ -25,6 +25,7 @@ class ExpensesPage extends Component {
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>
       <ExpenseTable expensesList={this.props.expenses} />
+      <Totals expenses={this.props.expenses} />
       </React.Fragment>
 
     )
