@@ -88,9 +88,9 @@ const ExpenseForm = props => {
         </div>
 
         <input
-        className="form-control input-sm"
+        className="input-sm btn btn-primary"
         type="submit"
-        className="btn btn-primary"/>
+        />
     </form>
   )
 }
