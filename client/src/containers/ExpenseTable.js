@@ -1,6 +1,8 @@
 import React from 'react';
 import ExpenseListItem from '../components/ExpenseListItem.js';
+
 const ExpenseTable = ({expensesList}) => {
+
   const renderExpenses = expensesList.map((expense, index) => {
     return (
       <ExpenseListItem

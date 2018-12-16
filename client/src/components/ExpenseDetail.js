@@ -5,40 +5,37 @@ class ExpenseDetail extends Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      expense: props.expense
-    }
   }
   render() {
     return (
       <div className="row">
         <div className="col">
-          <Link className="text-dark" to={`/expenses/${this.state.expense.id}`}> {this.state.expense.date}
+          <Link className="text-dark" to={`/expenses/${props.expense.id}`}> {props.expense.date}
           </Link>
         </div>
 
         <div className="col">
-        {this.props.expense.category}
+        {props.expense.category}
         </div>
 
         <div className="col">
-        {this.props.expense.description}
+        {props.expense.description}
         </div>
 
         <div className="col">
-        {this.props.expense.amount}
+        {props.expense.amount}
         </div>
 
         <div className="col">
-        {this.props.expense.reimburse_percent}
+        {props.expense.reimburse_percent}
         </div>
 
         <div className="col">
-        {this.props.expense.obligation}
+        {props.expense.obligation}
         </div>
 
         <div className="col">
-        {this.props.expense.paid}
+        {props.expense.paid}
         </div>
       </div>
     )
