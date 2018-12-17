@@ -19,8 +19,18 @@ const ExpenseTable = ({expensesList}) => {
   }
 )
 
+  // const filterOutstanding = expensesList.filter(expense => {
+  //   return expense.paid === false
+  //   }
+  // )
+  //
+  // const totalOutstanding = filterOutstanding.paid.reduce((acc, currValue) => {
+  //   return acc + currValue;
+  // }, 0);
+
     return (
       <div className="container" id="expense-table">
+      <h3>Outstanding Expenses: </h3>
       <table className="table table-striped">
         <thead className="thead-dark">
         <tr>

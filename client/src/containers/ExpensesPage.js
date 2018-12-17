@@ -7,7 +7,6 @@ import { fetchCategories } from '../actions/categoryActions';
 // import ExpenseNew from './ExpenseNew';
 import ExpenseNew from './ExpenseNew';
 import ExpenseTable from './ExpenseTable';
-import Totals from '../components/Totals';
 
 class ExpensesPage extends Component {
 
@@ -18,12 +17,11 @@ class ExpensesPage extends Component {
 
 
   render() {
-    debugger
+
     return (
       <React.Fragment>
       <h1>Expenses</h1>
       <ExpenseNew categories={this.props.categories}/>
-      <Totals expensesList={this.props.expenses} />
       <ExpenseTable expensesList={this.props.expenses} />
 
       </React.Fragment>
