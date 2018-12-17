@@ -18,7 +18,7 @@ class ExpensesPage extends Component {
 
 
   render() {
-
+    debugger
     return (
       <React.Fragment>
       <h1>Expenses</h1>

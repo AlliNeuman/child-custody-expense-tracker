@@ -1,15 +1,14 @@
 import React from 'react';
-
-let total = 0.0;
+import _ from 'lodash';
 
 const Totals = ({expensesList}) => {
 
-  const renderOutstanding =
-    expensesList.forEach(expense => {
-     if (!expense.paid) {
-      total += parseFloat(expense.amount).toFixed(2)
-    }
-  })
+  const outstandingExpenses =
+    _.filter(expensesList, {'paid': false});
+debugger
+  const total = _.reduce(outstandingExpenses, function(sum, n) {
+    return sum + n;
+  }, 0);
 
 
 return (
