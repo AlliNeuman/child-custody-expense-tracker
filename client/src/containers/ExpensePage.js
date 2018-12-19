@@ -6,8 +6,10 @@ import {fetchExpenses} from '../actions/expenseActions';
 
 
 class ExpensePage extends Component {
-  constructor() {
-    super()
+
+  componentDidMount = () => {
+    this.props.fetchExpense(this.props.expense)
+  }
   }
 
   render() {
@@ -23,13 +25,13 @@ class ExpensePage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    expenses: state.expenses
+    expense: state.expense
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    fetchExpenses: fetchExpenses
+    fetchExpense: fetchExpense
   }, dispatch);
 };
 
