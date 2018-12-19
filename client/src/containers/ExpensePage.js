@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ExpenseDetail from '../components/ExpenseDetail';
-import {fetchExpenses} from '../actions/expenseActions';
+import {fetchExpense} from '../actions/expenseActions';
 
 
 class ExpensePage extends Component {
 
-  componentDidMount = () => {
-    this.props.fetchExpense(this.props.expense)
-  }
-  }
+  debugger
+
 
   render() {
+    debugger
     return (
       <div className="container">
 
@@ -23,9 +22,12 @@ class ExpensePage extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  const expense = state.expenses.find(expense => expense.id == ownProps.match.params.expenseId) || {}
+  console.log(state)
+
   return {
-    expense: state.expense
+    expense
   }
 }
 

@@ -12,7 +12,7 @@ export default (state=[], action) => {
       return action.payload
 
     case 'FETCH_EXPENSE':
-      return action.payload
+      return Object.assign({}, state, action.payload)
 
     case 'ADD_EXPENSE':
       return Object.assign({}, state, action.payload);

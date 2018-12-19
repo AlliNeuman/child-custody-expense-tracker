@@ -1,45 +1,41 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class ExpenseDetail extends Component {
-  constructor(props) {
-    super(props)
+const ExpenseDetail = ({expense}) => {
 
-  }
-  render() {
     return (
-      <div className="row">
-        <div className="col">
-          <Link className="text-dark" to={`/expenses/${props.expense.id}`}> {props.expense.date}
-          </Link>
+      <div className="card">
+        <div className="card-body">
+          <h5 className="card-title"> {expense.date}
+          </h5>
+
+
+        <Link className="text-dark card-link" to={`/categories/${expense.category_id}`}>
+      {expense.category}
+        </Link>
+
+        <div className="card-text">
+        {expense.description}
         </div>
 
-        <div className="col">
-        {props.expense.category}
+        <div className="card-text">
+        {expense.amount}
         </div>
 
-        <div className="col">
-        {props.expense.description}
+        <div className="card-text">
+        {expense.reimburse_percent}
         </div>
 
-        <div className="col">
-        {props.expense.amount}
+        <div className="card-text">
+        {expense.obligation}
         </div>
 
-        <div className="col">
-        {props.expense.reimburse_percent}
-        </div>
-
-        <div className="col">
-        {props.expense.obligation}
-        </div>
-
-        <div className="col">
-        {props.expense.paid}
+        <div className="card-text danger">
+        {expense.paid}
         </div>
       </div>
+      </div>
     )
-  }
 }
 
 

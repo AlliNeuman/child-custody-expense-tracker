@@ -39,7 +39,7 @@ class CategoryNew extends Component {
 
     return (
       <React.Fragment>
-      <div className="container justify-content-left">
+      <div className="container">
       <h3>Add a Category</h3>
       <CategoryForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />
     </div>

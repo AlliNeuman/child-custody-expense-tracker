@@ -24,7 +24,9 @@ class ExpensesPage extends Component {
       <h1 className="text-center">Expenses</h1>
 
       <div className="pagination-centered btn-group btn-group-toggle" data-toggle="buttons">
+
       <button className="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="new-expense new-category">All Forms</button>
+
       <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-expense" aria-expanded="false" aria-controls="new-expense">New Expense</button>
       <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-category" aria-expanded="false" aria-controls="new-category">New Category</button>
 

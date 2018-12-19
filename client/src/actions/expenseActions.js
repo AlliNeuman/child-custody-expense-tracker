@@ -12,6 +12,7 @@ export function fetchExpenses() {
 }
 
 export function fetchExpense(expense) {
+  debugger
   return (dispatch) => {
     dispatch({type: 'LOADING_EXPENSE'})
     return fetch(`http://localhost:3000/expenses/${expense.id}`)

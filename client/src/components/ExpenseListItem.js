@@ -42,7 +42,7 @@ class ExpenseListItem extends Component {
         <React.Fragment>
         <tr>
         <td className="col mx-1 px-3">
-        <Link className="text-dark" to={`/expenses/${this.state.id}`}>
+        <Link className="text-dark" key={this.state.id} to={`/expenses/${this.state.id}`}>
         {this.state.date}
         </Link>
         </td>

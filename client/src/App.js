@@ -9,7 +9,7 @@ import CategoriesPage from './containers/CategoriesPage';
 // import CategoryPage from './containers/CategoryPage';
 import CategoryNew from './containers/CategoryNew';
 import ExpenseNew from './containers/ExpenseNew';
-// import ExpensePage from './containers/ExpensePage';
+import ExpensePage from './containers/ExpensePage';
 import {Footer} from './components/Footer';
 import {Home} from './components/Home';
 
@@ -29,7 +29,9 @@ class App extends Component {
             <Route exact path='/categories' component={CategoriesPage} />
             <Switch>
             <Route exact path='expenses/new' component={ExpenseNew} />
+            <Route exact path='expenses/:id' component={ExpensePage} />
             <Route exact path='/categories/new' component={CategoryNew} />
+
             </Switch>
             </div>
           <Footer />

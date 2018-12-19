@@ -29,9 +29,8 @@ const ExpenseTable = ({expensesList}) => {
   // }, 0);
 // debugger
     return (
-      <div className="card">
-      <div className="card-body" id="expense-table">
-      <table className="table table-striped">
+      <div id="expense-table">
+      <table className="table table-striped table-bordered">
         <thead className="thead-dark">
         <tr>
         <th scope="col">Date</th>
@@ -49,7 +48,6 @@ const ExpenseTable = ({expensesList}) => {
         {renderExpenses}
         </tbody>
       </table>
-      </div>
       </div>
     )
   }
