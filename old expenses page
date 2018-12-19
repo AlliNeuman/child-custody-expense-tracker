@@ -1,20 +1,49 @@
-      <table>
-      <thead>
-      <ExpenseGridHeader />
-      </thead>
-      <ExpenseList expensesList={this.props.expenses} />
-      </table>
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchExpenses } from '../actions/expenseActions';
+import { fetchCategories } from '../actions/categoryActions';
+// import ExpenseGridHeader from '../components/ExpenseGridHeader';
+// import ExpenseNew from './ExpenseNew';
+import ExpenseNew from './ExpenseNew';
+import ExpenseTable from '../components/ExpenseTable';
+import Totals from '../components/Totals';
+
+class ExpensesPage extends Component {
+
+  componentDidMount = () => {
+    this.props.fetchExpenses();
+    this.props.fetchCategories();
+  }
 
 
+  render() {
 
-////OLD PAID BUTTON//////
+    return (
+      <React.Fragment>
+      <h1>Expenses</h1>
+      <ExpenseNew categories={this.props.categories}/>
+      <Totals expensesList={this.props.expenses} />
+      <ExpenseTable expensesList={this.props.expenses} />
 
-      <button className="btn-sm" onClick={this.handleClick}>
-      {this.state.paid ? 'Not Paid' : 'Paid'}
-      </button>
+      </React.Fragment>
 
+    )
+  }
+}
 
-////OLD BUTTON ON EXPENSELISTITEM.JS/////
-        <Button onClick={this.handlePaidClick}>
-        {this.state.paid ? 'Paid' : 'Not Paid'}
-        </Button>
+const mapStateToProps = (state) => {
+  return {
+    expenses: state.expenses,
+    categories: state.categories
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    fetchExpenses: fetchExpenses,
+    fetchCategories: fetchCategories
+  }, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesPage);

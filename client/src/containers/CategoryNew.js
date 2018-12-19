@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import CategoryForm from '../components/CategoryForm';
 import { createCategory } from '../actions/categoryActions'
 
 
@@ -40,23 +41,7 @@ class CategoryNew extends Component {
       <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add a Category</h3>
-      <form id="category-form" onSubmit={this.handleOnSubmit}>
-        <div className="form-group form-row">
-          <div className="col-sm">
-          <input
-          type="text"
-          placeholder="Name"
-          name="name"
-          value={this.state.name}
-          onChange={this.handleOnChange}
-          />
-          </div>
-        </div>
-
-        <input
-        type="submit"
-        className="btn btn-primary" />
-      </form>
+      <CategoryForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />
     </div>
     </React.Fragment>
     )
@@ -66,7 +51,6 @@ class CategoryNew extends Component {
 const mapStateToProps = (state) => {
   return {
     categories: state.categories,
-    expenses: state.expenses
   }
 }
 

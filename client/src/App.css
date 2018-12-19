@@ -16,7 +16,19 @@ div.container #expense-table {
 }
 
 #totals {
-  padding: 20px;
+
   text-align: center;
   color: red;
+}
+
+p#new-category-alert {
+  color: red;
+  font-size: 12px;
+}
+
+
+
+#outstanding-expenses {
+  color: red;
+  margin: 15px;
 }

@@ -8,7 +8,7 @@ const ExpenseForm = props => {
   })
 
   return (
-    <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)}>
+    <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)} className="float-left">
 
       <div className="form-group form-row">
           <div className="col-sm">
@@ -35,6 +35,9 @@ const ExpenseForm = props => {
           </select>
         </div>
       </div>
+      <p id="new-category-alert">Don't see what you're looking for? Select New Category</p>
+
+
 
       <div className="form-group form-row">
           <div className="col-sm">
@@ -95,4 +98,4 @@ const ExpenseForm = props => {
   )
 }
 
-export default ExpenseForm
+export default ExpenseForm;
