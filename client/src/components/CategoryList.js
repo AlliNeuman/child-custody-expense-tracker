@@ -3,20 +3,9 @@ import { Link } from 'react-router-dom';
 import ExpenseDetail from './ExpenseDetail';
 import CategoryToggle from './CategoryToggle';
 
-const CategoryList = ({categoriesList}) => {
-  // const renderCategories = categoriesList.map((category, index) => {
-  //   return (
-  //     <div className="card">
-  //     <div className="card-body">
-  //     <Link className="text-dark" to={`/categories/${category.id}`}>
-  //     <h5>{category.name.toUpperCase()}</h5>
-  //     </Link>
-  //     </div>
-  //     </div>
-  //   )
-  // })
+const CategoryList = (props) => {
 
-  const toggleCategories = categoriesList.map((category, index) => {
+  const toggleCategories = props.categoriesList.map((category, index) => {
     return (
       <CategoryToggle
       key={category.id}

@@ -1,4 +1,5 @@
 export function fetchCategories() {
+  // debugger
   return (dispatch) => {
     dispatch({type: 'LOADING_CATEGORIES'})
     return fetch('http://localhost:3000/categories')

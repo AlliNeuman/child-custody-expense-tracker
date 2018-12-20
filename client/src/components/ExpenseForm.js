@@ -35,7 +35,7 @@ const ExpenseForm = props => {
           </select>
         </div>
       </div>
-      <p id="new-category-alert">Don't see what you're looking for? Select New Category</p>
+      <p id="new-category-alert">Don't see what you're looking for? Create a new category.</p>
 
 
 
