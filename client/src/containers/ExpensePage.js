@@ -23,7 +23,7 @@ class ExpensePage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const expense = state.expenses.find(expense => expense.id == ownProps.match.params.expenseId) || {}
+  const expense = state.expenses.find(expense => expense.id === ownProps.match.params.expenseId) || {}
   console.log(state)
 
   return {

@@ -35,7 +35,7 @@ class CategoriesPage extends Component {
         </div>
       </div>
 
-      <CategoryToggle categories={this.props.categories} expenses={this.props.expenses}/>
+      <CategoryToggle categories={this.props.categories} />
 
 
       </React.Fragment>
