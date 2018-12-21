@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ExpenseForm = props => {
-  debugger
+
   const categoryOptions = props.categories.map((category) => {
     return (
       <option key={category.name} value={category.id} id={category.id}>{category.name.toUpperCase()}</option>
