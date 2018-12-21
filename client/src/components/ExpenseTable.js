@@ -4,17 +4,20 @@ import ExpenseListItem from '../components/ExpenseListItem.js';
 const ExpenseTable = ({expensesList}) => {
 
   const renderExpenses = expensesList.map((expense, index) => {
+    const category = expense.category
     return (
+      <tr>
       <ExpenseListItem
         key={expense.id}
         id={expense.id}
         date={expense.date}
-        category={expense.category.name}
+        category={category.name}
         description={expense.description}
         amount={expense.amount}
         reimburse_percent={expense.reimburse_percent}
         paid={expense.paid}
 />
+  </tr>
     )
   }
 )
@@ -29,6 +32,7 @@ const ExpenseTable = ({expensesList}) => {
   // }, 0);
 // debugger
     return (
+      <React.Fragment>
       <div id="expense-table">
       <table className="table table-striped table-bordered">
         <thead className="thead-dark">
@@ -49,6 +53,7 @@ const ExpenseTable = ({expensesList}) => {
         </tbody>
       </table>
       </div>
+      </React.Fragment>
     )
   }
 

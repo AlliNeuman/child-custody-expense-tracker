@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import ExpenseForm from '../components/ExpenseForm';
 import { createExpense } from '../actions/expenseActions';
+import { fetchCategories } from '../actions/categoryActions';
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -23,9 +24,9 @@ class ExpenseNew extends Component {
 
   }
 
-  // componentDidMount = () => {
-  //   this.props.fetchCategories();
-  // }
+  componentDidMount = () => {
+    this.props.fetchCategories();
+  }
 
   handleOnSubmit = event => {
     event.preventDefault();
@@ -81,6 +82,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     createExpense: createExpense,
+    fetchCategories: fetchCategories,
   }, dispatch);
 };
 

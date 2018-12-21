@@ -35,16 +35,16 @@ class ExpenseListItem extends Component {
       })
     }
 
+  debugger
     render() {
       const paidObligation = parseFloat((-1)*this.state.parentObligation).toFixed(2);
 
+      const { date, category, description, amount, reimburse_percent, parentObligation } = this.state;
+
       return (
         <React.Fragment>
-        <tr>
         <td className="col mx-1 px-3">
-        <Link className="text-dark" key={this.state.id} to={`/expenses/${this.state.id}`}>
         {this.state.date}
-        </Link>
         </td>
 
         <td className="col mx-1 px-3">
@@ -52,7 +52,7 @@ class ExpenseListItem extends Component {
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.description.toUpperCase()}
+        {this.state.description}
         </td>
 
         <td className="col mx-1 px-3">
@@ -77,8 +77,6 @@ class ExpenseListItem extends Component {
         {this.state.paid ? 'Paid' : 'Not Paid'}
         </button>
         </td>
-
-        </tr>
         </React.Fragment>
       )
     }

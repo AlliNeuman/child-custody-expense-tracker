@@ -4,7 +4,7 @@ const ExpenseForm = ({handleOnChange, handleOnSubmit, categories}) => {
 
   const categoryOptions = categories.map((category) => {
     return (
-      <option key={category.name} value={category.id} id={category.id}>{category.name}</option>
+      <option key={category.id} value={category.id} id={category.id}>{category.name}</option>
     )
   })
 

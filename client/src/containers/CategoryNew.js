@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // import CategoryForm from '../components/CategoryForm';
-import { createCategory } from '../actions/categoryActions'
+import { createCategory, fetchCategories } from '../actions/categoryActions'
 
 
 class CategoryNew extends Component {
@@ -77,6 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     createCategory: createCategory,
+    fetchCategories: fetchCategories,
   }, dispatch);
 };
 
