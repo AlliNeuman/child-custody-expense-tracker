@@ -35,9 +35,6 @@ class CategoriesPage extends Component {
         </div>
       </div>
 
-      <CategoryToggle categories={this.props.categories} />
-
-
       </React.Fragment>
     )
   }
