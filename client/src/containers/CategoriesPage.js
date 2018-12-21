@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchCategories } from '../actions/categoryActions';
 import { fetchExpenses } from '../actions/expenseActions';
-import CategoryNew from './CategoryNew';
+import ToggleCategoriesPage from '../components/ToggleCategoriesPage';
+// import CategoryNew from './CategoryNew';
 // import CategoryList from '../components/CategoryList';
-// import CategoryToggle from '../components/CategoryToggle';
 
 class CategoriesPage extends Component {
 
@@ -19,21 +19,7 @@ class CategoriesPage extends Component {
     return (
       <React.Fragment>
       <h1 className="text-center">Categories</h1>
-      <div className="pagination-centered btn-group btn-group-toggle" data-toggle="buttons">
-
-      <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-category" aria-expanded="false" aria-controls="new-category">New Category
-      </button>
-      </div>
-
-      <div className="row">
-        <div className="col">
-          <div className="collapse multi-collapse" id="new-category">
-            <div className="card card-body">
-              <CategoryNew />
-            </div>
-          </div>
-        </div>
-      </div>
+      <ToggleCategoriesPage categories={this.props.categories}/>
 
       </React.Fragment>
     )

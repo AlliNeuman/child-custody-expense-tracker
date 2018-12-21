@@ -18,6 +18,10 @@ class ExpensesPage extends Component {
     this.props.fetchCategories();
   }
 
+  // updateOutstandingTotal = () => {
+  //
+  // }
+
   render() {
 // debugger
   let hasData = (this.props.expenses)

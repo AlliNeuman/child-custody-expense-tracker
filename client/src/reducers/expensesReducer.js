@@ -33,7 +33,6 @@ export default (state=[], action) => {
 // debugger
       return s;
 
-
     default:
       return state;
   }

@@ -23,14 +23,6 @@ const ExpenseTable = ({expensesList}) => {
   }
 )
 
-  // const filterOutstanding = expensesList.filter(expense => {
-  //   return expense.paid === false
-  //   }
-  // )
-  //
-  // const totalOutstanding = filterOutstanding.paid.reduce((acc, currValue) => {
-  //   return acc + currValue;
-  // }, 0);
 // debugger
     return (
       <React.Fragment>

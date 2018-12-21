@@ -18,7 +18,8 @@ class ExpenseListItem extends Component {
       amount: props.amount,
       reimburse_percent: props.reimburse_percent,
       paid: props.paid,
-      parentObligation: parseFloat(props.amount * props.reimburse_percent).toFixed(2)
+      parentObligation: parseFloat(props.amount * props.reimburse_percent).toFixed(2),
+
     }
     this.handlePaidClick = this.handlePaidClick.bind(this);
     }
