@@ -5,6 +5,12 @@ class Expense < ApplicationRecord
   validates :description, presence: true
   validates :reimburse_percent, presence: true
 
+  before_save :upcase_fields
+
+    def upcase_fields
+      self.description.upcase!
+    end
+
   # def category_attributes=(category_attributes)
   #   binding.pry
   #   if category_attributes['category_ids']

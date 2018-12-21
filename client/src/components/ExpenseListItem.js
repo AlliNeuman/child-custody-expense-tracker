@@ -48,7 +48,7 @@ class ExpenseListItem extends Component {
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.category.toUpperCase()}
+        {this.state.category}
         </td>
 
         <td className="col mx-1 px-3">
@@ -67,7 +67,8 @@ class ExpenseListItem extends Component {
         ${this.state.parentObligation}
         </td>
 
-        <td>
+
+        <td className={this.state.paid ? "text-danger" : ""}>
         ${this.state.paid ? paidObligation : this.state.parentObligation}
         </td>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CategoryForm from '../components/CategoryForm';
+// import CategoryForm from '../components/CategoryForm';
 import { createCategory } from '../actions/categoryActions'
 
 
@@ -21,11 +21,12 @@ class CategoryNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
+
     this.props.createCategory({
       category: {
         name: this.state.name,
-    }})
-
+    }});
+    this.refs.categoryInput.value = '';
   }
 
   handleOnChange = event => {
@@ -41,7 +42,26 @@ class CategoryNew extends Component {
       <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add a Category</h3>
-      <CategoryForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit} />
+      <form id="category-form" onSubmit={this.handleOnSubmit} className="float-left">
+
+        <div className="form-group form-row">
+          <div className="col-sm">
+          <input
+          className="form-control input-sm"
+          ref="categoryInput"
+          type="text"
+          placeholder="Name"
+          name="name"
+          onChange={this.handleOnChange}
+          />
+          </div>
+        </div>
+
+        <input
+        className="input-sm btn btn-primary"
+        type="submit"
+         />
+      </form>
     </div>
     </React.Fragment>
     )

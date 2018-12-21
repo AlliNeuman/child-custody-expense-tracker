@@ -1,9 +1,9 @@
 class Category < ApplicationRecord
   has_many :expenses
   validates :name, presence: true
-  before_save :downcase_fields
+  before_save :upcase_fields
 
-  def downcase_fields
-    self.name.downcase!
+  def upcase_fields
+    self.name.upcase!
   end
 end

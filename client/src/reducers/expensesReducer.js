@@ -15,7 +15,8 @@ export default (state=[], action) => {
       return Object.assign({}, state, action.payload)
 
     case 'ADD_EXPENSE':
-      return Object.assign({}, state, action.payload);
+      return [...state, action.payload]
+      // Object.assign({}, state, action.payload);
 
     case 'DELETE_EXPENSE':
     return [action.payload, ...state.filter(expense => expense.id !== action.payload.id)]

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CategoryForm = props => {
+const CategoryForm = ({handleOnChange, handleOnSubmit}) => {
   return (
-    <form id="category-form" onSubmit={(event) => props.handleOnSubmit(event)} className="float-left">
+    <form id="category-form" onSubmit={(event) => handleOnSubmit(event)} className="float-left">
 
       <div className="form-group form-row">
         <div className="col-sm">
@@ -11,7 +11,7 @@ const CategoryForm = props => {
         type="text"
         placeholder="Name"
         name="name"
-        onChange={(event) => props.handleOnChange(event)}
+        onChange={(event) => handleOnChange(event)}
         />
         </div>
       </div>

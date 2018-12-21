@@ -1,15 +1,15 @@
 import React from 'react';
 
-const ExpenseForm = props => {
+const ExpenseForm = ({handleOnChange, handleOnSubmit, categories}) => {
 
-  const categoryOptions = props.categories.map((category) => {
+  const categoryOptions = categories.map((category) => {
     return (
-      <option key={category.name} value={category.id} id={category.id}>{category.name.toUpperCase()}</option>
+      <option key={category.name} value={category.id} id={category.id}>{category.name}</option>
     )
   })
 
   return (
-    <form id="expense-form" onSubmit={(event) => props.handleOnSubmit(event)} className="float-left">
+    <form id="expense-form" onSubmit={(event) => handleOnSubmit(event)} className="float-left">
 
       <div className="form-group form-row">
           <div className="col-sm">
@@ -18,7 +18,7 @@ const ExpenseForm = props => {
           type="date"
           placeholder="Date"
           name="date"
-          onChange={(event) => props.handleOnChange(event)}
+          onChange={(event) => handleOnChange(event)}
           />
           </div>
         </div>
@@ -29,7 +29,7 @@ const ExpenseForm = props => {
           className="form-control input-sm"
           placeholder="Select"
           name="category"
-          onChange={(event) => props.handleOnChange(event)}
+          onChange={(event) => handleOnChange(event)}
           >
           <option selected={true} disabled="disabled" hidden={true} >Select Category</option>
             {categoryOptions}
@@ -47,7 +47,7 @@ const ExpenseForm = props => {
           type="text"
           placeholder="Description"
           name="description"
-          onChange={(event) => props.handleOnChange(event)}
+          onChange={(event) => handleOnChange(event)}
           />
           </div>
         </div>
@@ -59,7 +59,7 @@ const ExpenseForm = props => {
           type="text"
           placeholder="Amount"
           name="amount"
-          onChange={(event) => props.handleOnChange(event)}
+          onChange={(event) => handleOnChange(event)}
           />
           </div>
         </div>
@@ -71,7 +71,7 @@ const ExpenseForm = props => {
           type="text"
           placeholder="Reimbursement Rate"
           name="reimburse_percent"
-          onChange={(event) => props.handleOnChange(event)}
+          onChange={(event) => handleOnChange(event)}
           />
           </div>
         </div>
@@ -82,7 +82,7 @@ const ExpenseForm = props => {
             className="form-control input-sm"
             placeholder="Select"
             name="paid"
-            onChange={(event) => props.handleOnChange(event)}
+            onChange={(event) => handleOnChange(event)}
             >
             <option hidden={true} selected={true} disabled="disabled">Select Paid</option>
             <option value="true">Paid</option>
