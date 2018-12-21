@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = Category.find_or_create_by(category_params)
     if @category.save
       @categories = Category.order(:name)
       render json: @categories, status: 201

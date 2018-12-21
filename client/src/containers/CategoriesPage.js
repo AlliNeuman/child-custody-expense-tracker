@@ -5,7 +5,7 @@ import { fetchCategories } from '../actions/categoryActions';
 import { fetchExpenses } from '../actions/expenseActions';
 import CategoryNew from './CategoryNew';
 // import CategoryList from '../components/CategoryList';
-import CategoryToggle from '../components/CategoryToggle';
+// import CategoryToggle from '../components/CategoryToggle';
 
 class CategoriesPage extends Component {
 
