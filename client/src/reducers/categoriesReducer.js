@@ -12,7 +12,7 @@ export default (state=[], action) => {
       return action.payload
 
     case 'ADD_CATEGORY':
-      return [...state, action.payload]
+      return [action.payload, ...state]
 
 
     default:

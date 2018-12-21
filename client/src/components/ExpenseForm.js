@@ -36,7 +36,7 @@ const ExpenseForm = ({handleOnChange, handleOnSubmit, categories}) => {
           </select>
         </div>
       </div>
-      <p id="new-category-alert">Don't see what you're looking for? Create a new category.</p>
+      <p className="text-muted small">Don't see what you're looking for? Create a new category.</p>
 
 
 
