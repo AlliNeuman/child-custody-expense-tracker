@@ -15,7 +15,7 @@ export default (state=[], action) => {
       return Object.assign({}, state, action.payload)
 
     case 'ADD_EXPENSE':
-      return [...state, action.payload]
+      return action.payload
       // Object.assign({}, state, action.payload);
 
     case 'DELETE_EXPENSE':

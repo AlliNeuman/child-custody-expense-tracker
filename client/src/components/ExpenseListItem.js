@@ -19,8 +19,8 @@ class ExpenseListItem extends Component {
       reimburse_percent: props.reimburse_percent,
       paid: props.paid,
       parentObligation: parseFloat(props.amount * props.reimburse_percent).toFixed(2),
-
     }
+
     this.handlePaidClick = this.handlePaidClick.bind(this);
     }
 
@@ -38,7 +38,7 @@ class ExpenseListItem extends Component {
 
   debugger
     render() {
-      const paidObligation = parseFloat((-1)*this.state.parentObligation).toFixed(2);
+      // const paidObligation = parseFloat((-1)*this.state.parentObligation).toFixed(2);
 
       const { date, category, description, amount, reimburse_percent, parentObligation } = this.state;
 
@@ -70,7 +70,7 @@ class ExpenseListItem extends Component {
 
 
         <td className={this.state.paid ? "text-danger" : ""}>
-        ${this.state.paid ? paidObligation : this.state.parentObligation}
+        ${this.state.paid ? parentObligation : 0}
         </td>
 
         <td>

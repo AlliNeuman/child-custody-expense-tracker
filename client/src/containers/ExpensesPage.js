@@ -18,9 +18,9 @@ class ExpensesPage extends Component {
     this.props.fetchCategories();
   }
 
-  // updateOutstandingTotal = () => {
-  //
-  // }
+  updateOutstandingTotal = () => {
+
+  }
 
   render() {
 // debugger
