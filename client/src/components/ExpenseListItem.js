@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import {updateExpense} from '../actions/expenseActions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -44,27 +44,27 @@ class ExpenseListItem extends Component {
       return (
         <React.Fragment>
         <td className="col mx-1 px-3">
-        {this.state.date}
+        {date}
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.category}
+        {category}
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.description}
+        {description}
         </td>
 
         <td className="col mx-1 px-3">
-        ${this.state.amount}
+        ${amount}
         </td>
 
         <td className="col mx-1 px-3">
-        {this.state.reimburse_percent}
+        {reimburse_percent}
         </td>
 
         <td>
-        ${this.state.parentObligation}
+        ${parentObligation}
         </td>
 
 
