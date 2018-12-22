@@ -18,19 +18,27 @@ class ExpensesPage extends Component {
     this.props.fetchCategories();
   }
 
-  updateOutstandingTotal = () => {
+  updateOutstandingTotal = (total, num) => {
+    return parseFloat(parseFloat(total) + parseFloat(num)).toFixed(2)
+  }
 
+  calculateTotal = (expense) => {
+    return parseFloat(expense.amount * expense.reimburse_percent).toFixed(2)
   }
 
   render() {
 // debugger
+  let expenses = this.props.expenses.length >= 1 ? (this.props.expenses.filter(exp => exp.paid == false).map(exp => this.calculateTotal(exp))) : []
+
+  let currentTotal = expenses.length >= 1 ? (expenses.reduce(this.updateOutstandingTotal)) : 0
+
   let hasData = (this.props.expenses)
     return (
       <React.Fragment>
       <h1 className="text-center">Expenses</h1>
       <ToggleForms categories={this.props.categories} />
 
-      <Totals expensesList={this.props.expenses} />
+      <Totals outstandingTotal={currentTotal} />
 
       <ExpenseTable expensesList={this.props.expenses} />
 
