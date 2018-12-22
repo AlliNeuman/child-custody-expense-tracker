@@ -1,37 +1,38 @@
 import React from 'react';
 
-const ExpenseDetail = (props) => {
-
+const ExpenseDetail = ({expenses}) => {
+  const renderExpenses = expenses.map((expense, index) => {
     return (
-      <div className="row">
-        <div className="col">
-          <div className="collapse multi-collapse" id="${props.category_id}">
-            <div className="card card-body">
-              <h5 className="card-title">{props.date}</h5>
-                <div className="card-text">
-                  {props.description}
-                </div>
+      <div className="card card-body">
+        <h5 className="card-title">{expense.date}</h5>
+          <div className="card-text">
+            {expense.description}
+          </div>
 
-                <div className="card-text">
-                  {props.amount}
-                </div>
+          <div className="card-text">
+            {expense.amount}
+          </div>
 
-                <div className="card-text">
-                  {props.reimburse_percent}
-                </div>
+          <div className="card-text">
+            {expense.reimburse_percent}
+          </div>
 
-                <div className="card-text">
-                  {props.obligation}
-                </div>
+          <div className="card-text">
+            {expense.obligation}
+          </div>
 
-                <div className="card-text danger">
-                  {props.paid}
-                </div>
-              </div>
-            </div>
+          <div className="card-text danger">
+            {expense.paid}
           </div>
       </div>
     )
+  })
+
+  return (
+    <React.Fragment>
+      {renderExpenses}
+    </React.Fragment>
+  )
 }
 
 

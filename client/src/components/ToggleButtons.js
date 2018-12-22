@@ -11,7 +11,7 @@ export const ToggleAllFormsButton = () => {
   )
 }
 
-export const ToggleExpenseFormButton = () => 
+export const ToggleExpenseFormButton = () =>
     <React.Fragment>
     <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-expense" aria-expanded="false" aria-controls="new-expense"
     >
@@ -26,6 +26,23 @@ export const ToggleCategoryFormButton = () => {
     <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-category" aria-expanded="false" aria-controls="new-category">
       New Category
     </button>
+    </React.Fragment>
+  )
+}
+
+export const ToggleCategoryButtons = (props) => {
+  const renderCategoryButtons = props.categories.map((category, index) => {
+    return (
+
+      <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#{category.id}" aria-expanded="false" aria-controls="{category.id}" key={category.id}>
+      {category.name}
+      </button>
+
+    )
+  } )
+  return (
+    <React.Fragment>
+    {renderCategoryButtons}
     </React.Fragment>
   )
 }
