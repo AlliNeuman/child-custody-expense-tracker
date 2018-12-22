@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createExpense } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
-import {Form, Button} from 'react-bootstrap';
+
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -19,15 +19,9 @@ class ExpenseNew extends Component {
       amount: '',
       reimburse_percent: '',
       paid: '',
-      formErrors: {
-        date: '',
-        category: '',
-        description: '',
-        amount: '',
-        reimburse_percent: '',
-        paid: ''},
-        formValid: false
     }
+
+
   }
 
   componentDidMount = () => {
@@ -76,12 +70,13 @@ class ExpenseNew extends Component {
       <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
-        <Form id="expense-form" onSubmit={this.handleOnSubmit} className="float-left">
+        <form id="expense-form" onSubmit={this.handleOnSubmit} className="float-left">
 
         <div className="form-group form-row">
-        <div className="col-sm">
+
         <input
         required
+        autofocus
         className="form-control input-sm"
         type="date"
         ref="dateInput"
@@ -89,13 +84,13 @@ class ExpenseNew extends Component {
         name="date"
         onChange={this.handleOnChange}
         />
-        </div>
+
         </div>
 
         <div className="form-group form-row">
-        <div className="col-sm">
         <select
         required
+        autofocus
         className="form-control input-sm"
         ref="categoryInput"
         placeholder="Select"
@@ -105,16 +100,16 @@ class ExpenseNew extends Component {
         <option selected disabled hidden >Select Category</option>
         {categoryOptions}
         </select>
-        </div>
+
         </div>
         <p className="text-muted small">Don't see what you're looking for? Create a new category.</p>
 
 
 
         <div className="form-group form-row">
-        <div className="col-sm">
         <input
         required
+        autofocus
         className="form-control input-sm"
         type="text"
         ref="descriptionInput"
@@ -123,12 +118,11 @@ class ExpenseNew extends Component {
         onChange={this.handleOnChange}
         />
         </div>
-        </div>
 
         <div className="form-group form-row">
-        <div className="col-sm">
         <input
         required
+        autofocus
         className="form-control input-sm"
         type="text"
         ref="amountInput"
@@ -137,12 +131,11 @@ class ExpenseNew extends Component {
         onChange={this.handleOnChange}
         />
         </div>
-        </div>
 
         <div className="form-group form-row">
-        <div className="col-sm">
         <input
         required
+        autofocus
         className="form-control input-sm"
         type="text"
         ref="reimburseInput"
@@ -151,12 +144,11 @@ class ExpenseNew extends Component {
         onChange={this.handleOnChange}
         />
         </div>
-        </div>
 
         <div className="form-group form-row">
-        <div className="col-sm">
         <select
         required
+        autofocus
         className="form-control input-sm"
         placeholder="Select"
         ref="paidInput"
@@ -168,15 +160,12 @@ class ExpenseNew extends Component {
         <option value="false">Not Paid</option>
         </select>
         </div>
-        </div>
 
-        <Button
+        <input
         className="input-sm btn btn-primary"
         type="submit"
-        >
-        Submit
-        </Button>
-        </Form>
+        />
+        </form>
 
     </div>
     </React.Fragment>
