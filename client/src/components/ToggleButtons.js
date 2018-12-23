@@ -34,12 +34,13 @@ export const ToggleCategoryButtons = (props) => {
   const renderCategoryButtons = props.categories.map((category, index) => {
     return (
 
-      <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#{category.id}" aria-expanded="false" aria-controls="{category.id}" key={category.id}>
+      <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#`${category.id}`" aria-expanded="false" aria-controls={category.id} key={category.id}>
       {category.name}
       </button>
 
     )
   } )
+  debugger
   return (
     <React.Fragment>
     {renderCategoryButtons}

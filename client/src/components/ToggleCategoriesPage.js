@@ -4,6 +4,7 @@ import {ToggleCategoryFormCard} from './ToggleFormCards';
 import ToggleCategoryExpenses from './ToggleCategoryExpenses';
 
 const ToggleCategoriesPage = (props) => {
+  // debugger
   return (
     <React.Fragment>
       <div className="btn-group btn-group-toggle"

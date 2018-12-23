@@ -6,13 +6,13 @@ import ExpenseDetail from './ExpenseDetail';
       const expenses = ((category || {}).expenses || {})
       return (
           <div className="row form-card-display" key={category.id}>
-            <div className="collapse multi-collapse" id="{category.id}">
+            <div className="collapse multi-collapse" id={category.id}>
               <ExpenseDetail expenses={expenses} />
             </div>
           </div>
       )
     })
-
+// debugger
   return (
     <React.Fragment>
       {renderCategoryExpenses}

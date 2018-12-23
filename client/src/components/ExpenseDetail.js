@@ -3,7 +3,7 @@ import React from 'react';
 const ExpenseDetail = ({expenses}) => {
   const renderExpenses = expenses.map((expense, index) => {
     return (
-      <div className="card card-body">
+      <div className="card card-body" key={expense.id}>
         <h5 className="card-title">{expense.date}</h5>
           <div className="card-text">
             {expense.description}
