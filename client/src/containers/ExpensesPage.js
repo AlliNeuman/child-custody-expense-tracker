@@ -42,7 +42,10 @@ class ExpensesPage extends Component {
         <ExpenseTable expensesList={this.props.expenses} />
         </React.Fragment>
       ) : (
+        <React.Fragment>
         <NoData />
+        <ToggleForms categories={this.props.categories} />
+        </React.Fragment>
       )}
       </div>
     )
