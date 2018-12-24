@@ -32,19 +32,20 @@ class ExpensesPage extends Component {
 
   let currentTotal = expenses.length >= 1 ? (expenses.reduce(this.updateOutstandingTotal)) : 0
 
-  let hasData = (this.props.expenses)
+  let hasData = (this.props.expenses.length >= 1)
     return (
-      <React.Fragment>
-      <h1 className="text-center">Expenses</h1>
-      <ToggleForms categories={this.props.categories} />
-
-      <Totals outstandingTotal={currentTotal} />
-
-      <ExpenseTable expensesList={this.props.expenses} />
-
-
-      </React.Fragment>
-
+      <div className="expensesPage">
+      { hasData ? (
+        <React.Fragment>
+        <h1 className="text-center">Expenses</h1>
+        <ToggleForms categories={this.props.categories} />
+        <Totals outstandingTotal={currentTotal} />
+        <ExpenseTable expensesList={this.props.expenses} />
+        </React.Fragment>
+      ) : (
+        <NoData />
+      )}
+      </div>
     )
   }
 }
