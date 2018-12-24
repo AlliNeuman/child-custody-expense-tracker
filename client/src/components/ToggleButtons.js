@@ -11,7 +11,7 @@ export const ToggleAllFormsButton = () => {
   )
 }
 
-export const ToggleExpenseFormButton = () => 
+export const ToggleExpenseFormButton = () =>
     <React.Fragment>
     <button className="btn btn-primary" type="button" data-toggle="collapse" data-target="#new-expense" aria-expanded="false" aria-controls="new-expense"
     >

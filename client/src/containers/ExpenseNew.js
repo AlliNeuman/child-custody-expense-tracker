@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import ExpenseForm from '../components/ExpenseForm';
 import { createExpense } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
+
 
 class ExpenseNew extends Component {
   constructor(props) {
@@ -30,10 +30,6 @@ class ExpenseNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    //
-    // console.log(this.state)
-    // console.log(this.state.category)
-    // debugger
 
     this.props.createExpense({
       expense: {
@@ -45,7 +41,13 @@ class ExpenseNew extends Component {
         paid: this.state.paid,
 
     }});
-    // console.log(this.state.category)
+    this.refs.dateInput.value = '';
+    this.refs.categoryInput.value = 'Select Category';
+    this.refs.descriptionInput.value = '';
+    this.refs.amountInput.value = '';
+    this.refs.reimburseInput.value = '';
+    this.refs.paidInput.value = 'Select Paid';
+
 
 // debugger
   }
@@ -58,14 +60,113 @@ class ExpenseNew extends Component {
   }
 
   render() {
+    const categoryOptions = this.props.categories.map((category) => {
+      return (
+        <option key={category.id} value={category.id} id={category.id}>{category.name}</option>
+      )
+    })
 
     return (
       <React.Fragment>
       <div className="container justify-content-left">
       <h3>Add an Expense</h3>
-      <ExpenseForm handleOnChange={this.handleOnChange} handleOnSubmit={this.handleOnSubmit}
-        categories={this.props.categories}
-      />
+        <form id="expense-form" onSubmit={this.handleOnSubmit} className="float-left">
+
+        <div className="form-group form-row">
+
+        <input
+        required
+        autofocus
+        className="form-control input-sm"
+        type="date"
+        ref="dateInput"
+        placeholder="Date"
+        name="date"
+        onChange={this.handleOnChange}
+        />
+
+        </div>
+
+        <div className="form-group form-row">
+        <select
+        required
+        autofocus
+        className="form-control input-sm"
+        ref="categoryInput"
+        placeholder="Select"
+        name="category"
+        onChange={this.handleOnChange}
+        >
+        <option selected disabled hidden >Select Category</option>
+        {categoryOptions}
+        </select>
+
+        </div>
+        <p className="text-muted small">Don't see what you're looking for? Create a new category.</p>
+
+
+
+        <div className="form-group form-row">
+        <input
+        required
+        autofocus
+        className="form-control input-sm"
+        type="text"
+        ref="descriptionInput"
+        placeholder="Description"
+        name="description"
+        onChange={this.handleOnChange}
+        />
+        </div>
+
+        <div className="form-group form-row">
+        <input
+        required
+        autofocus
+        className="form-control input-sm"
+        type="text"
+        ref="amountInput"
+        placeholder="Amount"
+        name="amount"
+        onChange={this.handleOnChange}
+        />
+        </div>
+
+        <div className="form-group form-row">
+        <input
+        required
+        autofocus
+        className="form-control input-sm"
+        type="text"
+        ref="reimburseInput"
+        placeholder="Reimbursement Rate"
+        name="reimburse_percent"
+        onChange={this.handleOnChange}
+        />
+        </div>
+
+        <div className="form-group form-row">
+        <select
+        required
+        autofocus
+        className="form-control input-sm"
+        placeholder="Select"
+        ref="paidInput"
+        name="paid"
+        onChange={this.handleOnChange}
+        >
+        <option hidden selected disabled>Select Paid</option>
+        <option value="true">Paid</option>
+        <option value="false">Not Paid</option>
+        </select>
+        </div>
+
+        <input
+        className="input-sm btn btn-primary"
+        type="submit"
+        />
+        </form>
+
     </div>
     </React.Fragment>
     )

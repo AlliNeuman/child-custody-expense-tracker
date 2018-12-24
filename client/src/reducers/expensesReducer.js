@@ -11,9 +11,6 @@ export default (state=[], action) => {
     console.log(action.payload)
       return action.payload
 
-    case 'FETCH_EXPENSE':
-      return Object.assign({}, state, action.payload)
-
     case 'ADD_EXPENSE':
       return action.payload
       // Object.assign({}, state, action.payload);

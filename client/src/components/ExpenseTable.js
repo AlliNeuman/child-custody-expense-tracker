@@ -34,7 +34,7 @@ const ExpenseTable = ({expensesList}) => {
         <th scope="col">Category</th>
         <th scope="col">Description</th>
         <th scope="col">Amount</th>
-        <th scope="col">Reimbursement Percent</th>
+        <th scope="col">Reimbursement Factor</th>
         <th scope="col">Parent Obligation</th>
         <th scope="col">Expense Paid</th>
         <th scope="col">Change Selection</th>
