@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchExpenses } from '../actions/expenseActions';
 import { fetchCategories } from '../actions/categoryActions';
-// import ExpenseGridHeader from '../components/ExpenseGridHeader';
+// import CategoryNew from './CategoryNew';
 // import ExpenseNew from './ExpenseNew';
-import CategoryNew from './CategoryNew'
-;import ExpenseNew from './ExpenseNew';
 import ExpenseTable from '../components/ExpenseTable';
 import ToggleForms from '../components/ToggleForms';
 import Totals from '../components/Totals';
+import {NoData} from '../components/NoData';
 
 class ExpensesPage extends Component {
 
@@ -28,11 +27,11 @@ class ExpensesPage extends Component {
 
   render() {
 // debugger
-  let expenses = this.props.expenses.length >= 1 ? (this.props.expenses.filter(exp => exp.paid == false).map(exp => this.calculateTotal(exp))) : []
+  let expenses = this.props.expenses.length >= 1 ? (this.props.expenses.filter(exp => exp.paid === false).map(exp => this.calculateTotal(exp))) : []
 
   let currentTotal = expenses.length >= 1 ? (expenses.reduce(this.updateOutstandingTotal)) : 0
 
-  let hasData = (this.props.expenses.length >= 1)
+  let hasData = (this.props.expenses)
     return (
       <div className="expensesPage">
       { hasData ? (

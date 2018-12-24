@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { connect } from 'react-redux';
 // import { bindActionCreators } from 'redux';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import ExpensesPage from './containers/ExpensesPage';
 import CategoryNew from './containers/CategoryNew';
@@ -23,11 +23,8 @@ class App extends Component {
           <div className="container">
             <Route exact path='/' component={Home} />
             <Route exact path='/expenses' component={ExpensesPage} />
-            <Switch>
             <Route exact path='expenses/new' component={ExpenseNew} />
             <Route exact path='/categories/new' component={CategoryNew} />
-
-            </Switch>
             </div>
           <Footer />
         </div>

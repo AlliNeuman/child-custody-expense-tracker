@@ -26,7 +26,7 @@ export default (state=[], action) => {
       let s = [ ...state ]
       let idx = s.map(expense => expense.id).indexOf(action.payload.id)
       s[idx] = action.payload
-      s = s.sort(function(a,b) {return a.date - b.date})
+      // s = s.sort((a,b) => (b.date - a.date))
 // debugger
       return s;
 

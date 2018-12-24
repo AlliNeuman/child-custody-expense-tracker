@@ -1,11 +1,7 @@
 import React from 'react';
-// import ExpenseNew from '../containers/ExpenseNew';
-// import CategoryNew from '../containers/CategoryNew';
 import {ToggleAllFormsButton} from '../components/ToggleButtons';
-import {ToggleExpenseFormButton} from '../components/ToggleButtons';
-import {ToggleCategoryFormButton} from '../components/ToggleButtons';
-import {ToggleExpenseFormCard} from '../components/ToggleFormCards';
-import {ToggleCategoryFormCard} from '../components/ToggleFormCards';
+import {ToggleExpenseFormButton, ToggleCategoryFormButton} from '../components/ToggleButtons';
+import {ToggleExpenseFormCard, ToggleCategoryFormCard} from '../components/ToggleFormCards';
 
 const ToggleForms = (props) => {
   // debugger
@@ -18,7 +14,7 @@ const ToggleForms = (props) => {
       </div>
 
 
-        <ToggleExpenseFormCard />
+        <ToggleExpenseFormCard categories={props.categories}/>
         <ToggleCategoryFormCard />
 
     </React.Fragment>

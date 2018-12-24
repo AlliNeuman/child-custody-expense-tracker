@@ -14,10 +14,6 @@ class NavBar extends Component {
           Expenses
         </NavLink>
 
-        <NavLink className="NavLink px-2 ml-2" to="/categories">
-          Categories
-        </NavLink>
-
       </div>
     );
   }

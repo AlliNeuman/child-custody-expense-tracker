@@ -60,7 +60,8 @@ class ExpenseNew extends Component {
   }
 
   render() {
-    const categoryOptions = this.props.categories.map((category) => {
+    // debugger
+    const categoryOptions = this.props.categories.map((category, index) => {
       return (
         <option key={category.id} value={category.id} id={category.id}>{category.name}</option>
       )
@@ -76,7 +77,7 @@ class ExpenseNew extends Component {
 
         <input
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         type="date"
         ref="dateInput"
@@ -90,7 +91,7 @@ class ExpenseNew extends Component {
         <div className="form-group form-row">
         <select
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         ref="categoryInput"
         placeholder="Select"
@@ -109,7 +110,7 @@ class ExpenseNew extends Component {
         <div className="form-group form-row">
         <input
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         type="text"
         ref="descriptionInput"
@@ -122,7 +123,7 @@ class ExpenseNew extends Component {
         <div className="form-group form-row">
         <input
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         type="text"
         ref="amountInput"
@@ -135,7 +136,7 @@ class ExpenseNew extends Component {
         <div className="form-group form-row">
         <input
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         type="text"
         ref="reimburseInput"
@@ -148,7 +149,7 @@ class ExpenseNew extends Component {
         <div className="form-group form-row">
         <select
         required
-        autofocus
+        autoFocus
         className="form-control input-sm"
         placeholder="Select"
         ref="paidInput"
