@@ -22,7 +22,8 @@ export default (state=[], action) => {
       // const idx = state.expenses.indexOf(state.expenses.find(expense => expense.id === action.payload.id));
       // let new_expenses = JSON.parse(JSON.stringify(state.expenses));
       // new_expenses[idx] = action.payload;
-      // return {...state, expenses: new_expenses}
+      // // return {...state, expenses: new_expenses}
+      // debugger
       let s = [ ...state ]
       let idx = s.map(expense => expense.id).indexOf(action.payload.id)
       s[idx] = action.payload

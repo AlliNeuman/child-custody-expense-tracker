@@ -19,9 +19,11 @@ class ExpenseListItem extends Component {
       reimburse_percent: props.reimburse_percent,
       paid: props.paid,
       parentObligation: parseFloat(props.amount * props.reimburse_percent).toFixed(2),
+      votes: 0
     }
 
     this.handlePaidClick = this.handlePaidClick.bind(this);
+    this.handleLikeClick = this.handleLikeClick.bind(this);
     }
 
     handlePaidClick = () => {
@@ -36,7 +38,20 @@ class ExpenseListItem extends Component {
       })
     }
 
-  debugger
+    handleLikeClick = (event) => {
+      event.preventDefault();
+      this.setState( state => ({
+        votes: state.votes += 1
+      }));
+      debugger
+      this.props.updateExpense({
+        expense: {
+          votes: this.state.votes +=1
+        },
+        id: this.state.id
+      })
+    }
+
     render() {
       // const paidObligation = parseFloat((-1)*this.state.parentObligation).toFixed(2);
 
@@ -78,11 +93,26 @@ class ExpenseListItem extends Component {
         {this.state.paid ? 'Paid' : 'Not Paid'}
         </button>
         </td>
+
+        <td>
+        <button className="btn btn-primary btn-sm"
+        onClick={this.handleLikeClick}>
+        Like
+        </button>
+        </td>
+
+        <td>
+        {this.state.votes}
+        </td>
         </React.Fragment>
       )
     }
   }
-
+  const mapStateToProps = (state) => {
+    return {
+      votes: state.expense.votes,
+    }
+  }
 
   const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
