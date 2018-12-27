@@ -39,6 +39,7 @@ class ExpenseNew extends Component {
         amount: this.state.amount,
         reimburse_percent: this.state.reimburse_percent,
         paid: this.state.paid,
+        votes: 0,
 
     }});
     this.refs.dateInput.value = '';

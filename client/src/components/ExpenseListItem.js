@@ -18,8 +18,8 @@ class ExpenseListItem extends Component {
       amount: props.amount,
       reimburse_percent: props.reimburse_percent,
       paid: props.paid,
+      votes: props.votes,
       parentObligation: parseFloat(props.amount * props.reimburse_percent).toFixed(2),
-      votes: 0
     }
 
     this.handlePaidClick = this.handlePaidClick.bind(this);
@@ -110,7 +110,7 @@ class ExpenseListItem extends Component {
   }
   const mapStateToProps = (state) => {
     return {
-      votes: state.expense.votes,
+      expense: state.expense,
     }
   }
 
@@ -120,4 +120,4 @@ class ExpenseListItem extends Component {
     }, dispatch);
   };
 
-  export default connect(null, mapDispatchToProps)(ExpenseListItem);
+  export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListItem);
