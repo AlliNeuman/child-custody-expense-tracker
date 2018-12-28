@@ -26,7 +26,8 @@ class ExpenseListItem extends Component {
     this.handleLikeClick = this.handleLikeClick.bind(this);
     }
 
-    handlePaidClick = () => {
+    handlePaidClick = (event) => {
+      event.preventDefault();
       this.setState( state => ({
         paid: !state.paid
       }));
@@ -40,13 +41,12 @@ class ExpenseListItem extends Component {
 
     handleLikeClick = (event) => {
       event.preventDefault();
-      this.setState( state => ({
-        votes: state.votes += 1
-      }));
-      debugger
+      // this.setState( state => ({
+      //   votes: state.votes += 1
+      // }));
       this.props.updateExpense({
         expense: {
-          votes: this.state.votes +=1
+          votes: this.state.votes += 1
         },
         id: this.state.id
       })
