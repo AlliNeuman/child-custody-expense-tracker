@@ -3,7 +3,7 @@ import ExpenseListItem from '../components/ExpenseListItem.js';
 
 const ExpenseTable = ({expensesList}) => {
 
-  const renderExpenses = expensesList.map((expense, index) => {
+  const renderExpenses = expensesList.sort((a,b) => (b.votes - a.votes)).map((expense, index) => {
     const category = ((expense || {}).category || {}).name;
     // debugger
     return (
