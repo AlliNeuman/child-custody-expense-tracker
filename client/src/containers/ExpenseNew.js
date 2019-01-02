@@ -183,7 +183,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
-    createExpense,
+    createExpense: createExpense,
     fetchCategories: fetchCategories,
   }, dispatch);
 };
