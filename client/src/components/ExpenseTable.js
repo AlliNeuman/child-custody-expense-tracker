@@ -17,7 +17,6 @@ const ExpenseTable = ({expensesList}) => {
         amount={expense.amount}
         reimburse_percent={expense.reimburse_percent}
         paid={expense.paid}
-        votes={expense.votes}
 />
   </tr>
     )
