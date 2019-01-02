@@ -24,19 +24,12 @@ export default (state=[], action) => {
       // new_expenses[idx] = action.payload;
       // // return {...state, expenses: new_expenses}
       // debugger
-    //  let s = [ ...state ]
-    //  let idx = s.map(expense => //expense.id).indexOf(action.payload.id)
-    //  s[idx] = action.payload
+      let s = [ ...state ]
+      let idx = s.map(expense => expense.id).indexOf(action.payload.id)
+      s[idx] = action.payload
       // s = s.sort((a,b) => (b.date - a.date))
 // debugger
-      //return s;
-      return state.map(expense => {
-        if (expense.id === action.payload.id) {
-          return action.payload
-        } else {
-          return expense
-        }
-      })
+      return s;
 
     default:
       return state;
