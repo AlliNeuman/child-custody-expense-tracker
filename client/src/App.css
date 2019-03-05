@@ -29,3 +29,33 @@ td, th {
     margin-bottom: 10px;
     margin-left: 0px;
 }
+
+.jumbotron {
+  background-image: url("https://kahanelaw.com/wp-content/uploads/2017/11/CHILD-SUPPORT.jpg");
+  background-size: cover;
+  height: 600px;
+}
+
+.WelcomeMessage {
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.HomeDescription {
+  padding: 15px;
+}
+
+.you-owe-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 800;
+}
+
+.expense-table {
+  margin-left: 20px;
+}
+
+.totals {
+  padding-left: 0px;
+  width: 325px;
+}
