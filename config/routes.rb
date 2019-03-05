@@ -5,7 +5,7 @@ root to: 'welcome#home'
 scope 'api' do
   resources :expenses, only: [:index, :show, :create, :update, :destroy]
   resources :categories, only: [:index, :show, :create, :update, :destroy]
-end 
+end
 
 
 get '*path', to: "application#fallback_index_html", constraints: ->(request) do

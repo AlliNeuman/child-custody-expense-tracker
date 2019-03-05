@@ -1,8 +1,3 @@
-// styling imports
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import './index.css';
-
 // react imports
 // import { Router } from 'react-router-dom';
 import React from 'react';
@@ -13,8 +8,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // redux imports
-import store from './store.js';
 import { Provider } from 'react-redux';
+import store from './store.js';
+
+// styling imports
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>
