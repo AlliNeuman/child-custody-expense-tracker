@@ -2,7 +2,7 @@ export function fetchCategories() {
   // debugger
   return (dispatch) => {
     dispatch({type: 'LOADING_CATEGORIES'})
-    return fetch('http://localhost:3000/categories')
+    return fetch('https://yom-child-expense-tracker.herokuapp.com/categories')
     .then(response => response.json())
     .then(categories => dispatch({
       type: "FETCH_CATEGORIES",
@@ -15,7 +15,7 @@ export function createCategory(formContent) {
   console.log(formContent)
   return (dispatch) => {
     dispatch({ type: 'CREATING_CATEGORY'})
-    return fetch('http://localhost:3000/categories', {
+    return fetch('https://yom-child-expense-tracker.herokuapp.com/categories', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
