@@ -36,7 +36,7 @@ class ExpensesPage extends Component {
       <div className="expensesPage">
       { hasData ? (
         <React.Fragment>
-        <h1 className="text-center">Expenses</h1>
+        <h1 className="text-center expenses-header">Expenses</h1>
         <ToggleForms categories={this.props.categories} />
         <Totals outstandingTotal={currentTotal} />
         <ExpenseTable expensesList={this.props.expenses} />

@@ -5,7 +5,7 @@ import '../App.css';
 class NavBar extends Component {
   render() {
     return (
-      <div className="NavBar">
+      <div className="NavBar navbar-dark bg-dark navbar-links">
         <NavLink className="NavLink px-2 ml-2" to="/">
           Home
         </NavLink>

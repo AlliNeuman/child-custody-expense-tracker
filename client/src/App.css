@@ -1,9 +1,21 @@
 .App-link {
-  color: #61dafb;
+  color: #E7E7E7;
 }
 
 .NavBar {
   text-align: center;
+  padding: 10px;
+}
+
+.NavBar a {
+  color: #E7E7E7;
+  padding: 10px;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.NavBar a:hover {
+  color: #006ADA;
 }
 
 td, th {
@@ -38,10 +50,14 @@ td, th {
 
 .WelcomeMessage {
   border-bottom: 1px solid #E7E7E7;
+  margin-top: 30px;
 }
 
 .HomeDescription {
-  padding: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .you-owe-me {
@@ -58,4 +74,8 @@ td, th {
 .totals {
   padding-left: 0px;
   width: 325px;
+}
+
+.expenses-header {
+  border-bottom: 1px solid #E7E7E7;
 }
