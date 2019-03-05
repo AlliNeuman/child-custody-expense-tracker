@@ -2,7 +2,7 @@ export function fetchExpenses() {
   return (dispatch) => {
     // debugger
     dispatch({type: 'LOADING_EXPENSES'})
-    return fetch('https://yom-child-expense-tracker.herokuapp.com/expenses')
+    return fetch('https://yom-api.herokuapp.com/expenses')
     .then(response => response.json())
     .then(expenses => dispatch({
       type: "FETCH_EXPENSES",
@@ -15,7 +15,7 @@ export function createExpense(formContent) {
   console.log(formContent)
   return (dispatch) => {
     dispatch({ type: 'CREATING_EXPENSE'})
-    return fetch('https://yom-child-expense-tracker.herokuapp.com/expenses', {
+    return fetch('https://yom-api.herokuapp.com/expenses', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -31,7 +31,7 @@ export function createExpense(formContent) {
 
 export function updateExpense(expense) {
   return (dispatch) => {
-    return fetch(`https://yom-child-expense-tracker.herokuapp.com/expenses/${expense.id}`, {
+    return fetch(`https://yom-api.herokuapp.com/expenses/${expense.id}`, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json'
